@@ -1,0 +1,32 @@
+{
+    "header" : {
+        "menu1" : "Main",
+        "menu2" : "Pavement",
+        "menu3" : "Tiles",
+        "menu4" : "Slabs",
+        "menu5" : "Border",
+        "menu6" : "Stone catalog",
+        "menu7" : "Order"
+    },
+
+    "main" : {
+        "motto": "Find Stone Products For Your Company",
+        "description": "Natural stone is a material that not only surprises with its beauty, but is also a reliable, durable and elegant solution for interior and exterior. POLISSYA GRANITE - products from Ukrainian granites directly from the manufacturer with many years of experience"
+    },
+
+    "footer" : {
+         "title": "Products to order from POLISSYA GRANITE",
+         "description": "We offer the manufacture of natural stone products according to your sketches and designs. We produce any products from natural stone at prices without intermediaries.",
+         "list1": "Delivery all over the world",
+         "list2": "Individual prices",
+         "list3": "Production to order",
+         "list4": "9 years of experience",
+         "button_name": "Order",
+         "company_description": "Your personal stone master. Contact us and we will help you to choose a stone product individually",
+         "socials": "Socials",
+         "rules": "©2022 POLISSYAGRANITE. All rights reserved",
+         "privacy": "Privacy policy",
+         "terms": "Terms and conditions"
+    }
+
+}

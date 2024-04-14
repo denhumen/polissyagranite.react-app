@@ -1,0 +1,32 @@
+{
+    "header" : {
+        "menu1" : "Główny",
+        "menu2" : "Kostka",
+        "menu3" : "Płytka",
+        "menu4" : "Płyty",
+        "menu5" : "Krawężnik",
+        "menu6" : "Katalog kamieni",
+        "menu7" : "Zamówić"
+    },
+
+    "main" : {
+        "motto": "Find Stone Products For Your Company",
+        "description": "Kamień naturalny - to materiał, który nie tylko zaskakuje swoim pięknem, ale jest także niezawodnym, trwałym i doskonałym rozwiązaniem do budowy wnętrz i na zewnątrz. POLISSYA GRANITE - Ukraińskie wyroby granitowe bezpośrednio od producenta z wieloletnim doświadczeniem oraz gwarantacją jakości od naszych specjalistów"
+    },
+
+    "footer" : {
+         "title": "Produkty do zamówienia w POLISSYA GRANITE",
+         "description": "Oferujemy produkcję wyrobów z kamienia naturalnego według Państwa szkiców i projektów. Produkujemy dowolne wyroby z kamienia naturalnego w cenach bez pośredników.",
+         "list1": "Dostawa na cały świat",
+         "list2": "Ceny indywidualne",
+         "list3": "Produkcja na zamówienie",
+         "list4": "Ponad 9 lat doświadczenia",
+         "button_name": "Zamówić",
+         "company_description": "Twój osobisty mistrz kamienia. Skontaktuj się z nami, a pomożemy Ci indywidualnie dobrać produkt z kamienia",
+         "socials": "Społeczny",
+         "rules": "©2017 POLISSYAGRANITE. Wszelkie prawa zastrzeżone",
+         "privacy": "Polityka prywatności",
+         "terms": "Zasady i warunki"
+    }
+
+}
