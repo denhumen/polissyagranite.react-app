@@ -2,6 +2,7 @@ import React from 'react';
 import "../assets/css/main_block.css"
 import mainblockBg from "../assets/img/main_bg.jpg"
 import Header from './Header';
+import Carousel from './Carousel';
 import { useTranslation } from 'react-i18next';
 
 function Main() {
