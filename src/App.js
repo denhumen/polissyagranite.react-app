@@ -1,15 +1,19 @@
-import logo from './logo.svg';
-import Footer from './components/Footer';
-import Main from './components/Main';
-import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
 import './App.css';
+import MainPage from './pages/MainPage';
+import AdminLoginPage from './pages/AdminLoginPage';
 
 function App() {
   return (
-    <div className="App">
-      <Main />
-      <Footer />
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/admin" element={<AdminLoginPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
