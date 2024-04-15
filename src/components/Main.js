@@ -4,6 +4,7 @@ import mainblockBg from "../assets/img/main_bg.jpg"
 import Header from './Header';
 import Carousel from './Carousel';
 import { useTranslation } from 'react-i18next';
+import Katalog from './Catalog';
 
 function Main() {
     const [t, i18n] = useTranslation("global");
