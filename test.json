@@ -1,0 +1,20 @@
+{
+    "sliders": {
+        "slider1": {
+            "title": "",
+            "descripion": ""
+        },
+        "slider2": {
+            "title": "",
+            "descripion": ""
+        }
+    },
+    "admins": {
+        "user1": {
+            "name": "Alice",
+            "age": 30,
+            "favorite_genre": "Fantasy"
+        }
+    }
+  }
+  
