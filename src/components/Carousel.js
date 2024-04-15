@@ -3,29 +3,29 @@ import { useState } from "react";
 const Carousel = ({ images }) => {
   const carouselContainerStyle = {
     overflow: "hidden",
-    width: "80%",
+    width: "75%",
     margin: "auto",
     position: "relative",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "1rem",
+    marginTop: "2rem",
   };
 
   const carouselInnerStyle = {
     display: "flex",
     transition: "transform 0.5s ease",
     position: "relative",
-    width: "75%",
+    width: "100%",
   };
 
   const imgStyle = {
-    minWidth: "100%", // Use 100% of the carouselInner width
+    minWidth: "100%",
     height: "auto",
-    borderRadius: "1rem",
-    flexShrink: 0, // Prevent the image from shrinking
-    margin: "0 5px", // Space between images
+    flexShrink: 0,
   };
+
+
 
   const [index, setIndex] = useState(0);
 
@@ -61,11 +61,11 @@ const Carousel = ({ images }) => {
       </div>
       <button onClick={handleNext} style={{
         position: "absolute",
-        right: "0",
         width: "2rem",
         height: "3rem",
         fontSize: "2rem",
         zIndex: 1,
+        right: "12px",
       }}>
         ➡️
       </button>
