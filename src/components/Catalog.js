@@ -1,7 +1,7 @@
 import React from 'react';
 import photo1 from '../assets/img/earth-svg.svg';
-const Katalog = () => {
-    // Sample data for the catalog
+
+const Catalog = () => {
     const catalogData = [
         { id: 1, image: photo1, caption: 'Item 1' },
         { id: 2, image: photo1, caption: 'Item 2' },
@@ -29,4 +29,4 @@ const Katalog = () => {
     );
 };
 
-export default Katalog;
+export default Catalog;
