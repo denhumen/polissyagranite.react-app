@@ -1,20 +1,14 @@
 {
     "sliders": {
-        "slider1": {
-            "title": "",
-            "descripion": ""
+        "1": {
         },
-        "slider2": {
-            "title": "",
-            "descripion": ""
+        "2": {
+
         }
     },
-    "admins": {
-        "user1": {
-            "name": "Alice",
-            "age": 30,
-            "favorite_genre": "Fantasy"
-        }
+    "stone-galery": {
+        "1" : "",
+        "2" : ""
     }
-  }
+}
   
