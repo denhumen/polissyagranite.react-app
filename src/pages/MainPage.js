@@ -10,6 +10,13 @@ import image4 from "../assets/img/sliders/галтована_1.png"
 import image5 from "../assets/img/sliders/french-pavement-main.png"
 import Catalog from '../components/Catalog';
 import { uploadImage, deleteImage } from '../firebase-communication/firebase-storage';
+import { add_new_slider } from '../firebase-communication/firebase-database';
+
+// Test, need to be deleted
+import { rtDatabase } from "../firebase-config";
+import { ref, get, update, push, set, onValue, child } from "firebase/database";
+
+
 
 function MainPage(){
     const [url, setUrl] = useState('');
@@ -40,6 +47,20 @@ function MainPage(){
         }
     };
 
+    const testUrl = "http://example.com/new-image.jpg";
+
+    const titles = {
+        en: "New Slider",
+        ua: "Новий слайдер",
+        pl: "Nowy suwak"
+    };
+
+    const descriptions = {
+        en: "New slider description in English",
+        ua: "Опис нового слайдера українською",
+        pl: "Opis nowego suwaka po polsku"
+    };
+
     return (
         <div>
             <Main />
@@ -51,6 +72,9 @@ function MainPage(){
                     <button onClick={handleDeleteImage}>Delete Image</button>
                 </div>
             )}
+
+            <button onClick={() => add_new_slider(2, testUrl, titles, descriptions)}> Add new slider </button>
+
 
             <Carousel images={[image0, image1]} />
             <Catalog />
