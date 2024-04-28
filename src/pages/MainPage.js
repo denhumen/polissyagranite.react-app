@@ -61,6 +61,24 @@ function MainPage(){
         pl: "Opis nowego suwaka po polsku"
     };
 
+    const slideData = [
+        {
+          image: "https://firebasestorage.googleapis.com/v0/b/polissya-granite.appspot.com/o/main_pavement.png?alt=media&token=daab0c38-4662-4505-82e5-55d3597f0f70",
+          title: "Slide 1 Title",
+          description: "Description for Slide 1",
+          button1Text: "Button 1",
+          button2Text: "Button 2"
+        },
+        {
+          image: "https://firebasestorage.googleapis.com/v0/b/polissya-granite.appspot.com/o/%D0%B3%D0%B0%D0%BB%D1%82%D0%BE%D0%B2%D0%B0%D0%BD%D0%B0_1.png?alt=media&token=696bbb2a-d8c0-4594-8ff6-5192e4ac4e79",
+          title: "Slide 2 Title",
+          description: "Description for Slide 2",
+          button1Text: "Button 3",
+          button2Text: "Button 4"
+        },
+        // Add more slides as needed
+      ];      
+
     return (
         <div>
             <Main />
@@ -76,7 +94,7 @@ function MainPage(){
             <button onClick={() => add_new_slider(2, testUrl, titles, descriptions)}> Add new slider </button>
 
 
-            <Carousel images={[image0, image1]} />
+            <Carousel slides={slideData} isAdmin={true} />
             <Catalog />
             <Footer />
         </div>

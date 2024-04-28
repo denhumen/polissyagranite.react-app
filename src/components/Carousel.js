@@ -1,97 +1,48 @@
-import { useState } from "react";
+import React from 'react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import '../assets/css/carousel.css';
 
-const Carousel = ({ images }) => {
-  const carouselContainerStyle = {
-    overflow: "hidden",
-    width: "75%",
-    margin: "auto",
-    position: "relative",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: "2rem",
-  };
+const Carousel = ({ slides, isAdmin }) => {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+    };
 
-  const carouselInnerStyle = {
-    display: "flex",
-    transition: "transform 0.5s ease",
-    position: "relative",
-    width: "100%",
-  };
+    const handleAddClick = () => {
+        console.log("Add new slide clicked!"); // Implement your functionality here
+    };
 
-  const imgStyle = {
-    minWidth: "100%",
-    height: "auto",
-    flexShrink: 0,
-  };
-
-
-
-  const [index, setIndex] = useState(0);
-
-  const handleNext = () => {
-    setIndex((current) => (current + 1) % images.length);
-  };
-
-  const handlePrev = () => {
-    setIndex((current) => (current - 1 + images.length) % images.length);
-  };
-
-  const getTransform = () => {
-    const percentage = -(index * 100);
-    return `translateX(${percentage}%)`;
-  };
-
-  return (
-    <section style={carouselContainerStyle}>
-      <button onClick={handlePrev} style={{
-        position: "absolute",
-        left: "0",
-        width: "2rem",
-        height: "3rem",
-        fontSize: "2rem",
-        zIndex: 1,
-      }}>
-        ⬅️
-      </button>
-      <div style={{...carouselInnerStyle, transform: getTransform()}}>
-        {images.map((src, i) => (
-          <img key={i} src={src} alt={`carousel-${i}`} style={imgStyle} />
-        ))}
-      </div>
-      <button onClick={handleNext} style={{
-        position: "absolute",
-        width: "2rem",
-        height: "3rem",
-        fontSize: "2rem",
-        zIndex: 1,
-        right: "12px",
-      }}>
-        ➡️
-      </button>
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: "0.5rem",
-        position: "absolute",
-        bottom: "0",
-        width: "100%",
-        padding: "1rem",
-      }}>
-        {images.map((_, i) => (
-          <span key={i} style={{
-            width: "1rem",
-            height: "1rem",
-            borderRadius: "50%",
-            backgroundColor: i === index ? "black" : "white",
-            cursor: "pointer",
-            margin: "0.5rem",
-          }} onClick={() => setIndex(i)}></span>
-        ))}
-      </div>
-    </section>
-  );
+    return (
+        <div className="carousel-container">
+            <Slider {...settings}>
+                {slides.map((slide, index) => (
+                    <div key={index} className="slide-content">
+                        <img src={slide.image} alt={`Slide ${index}`} />
+                        <div className="slide-info">
+                            <h2>{slide.title}</h2>
+                            <p>{slide.description}</p>
+                            <button className="btn-primary">{slide.button1Text}</button>
+                            <button className="btn-secondary">{slide.button2Text}</button>
+                        </div>
+                    </div>
+                ))}
+                {isAdmin && (
+                    <div className="slide-content">
+                        <div className="admin-plus-button" onClick={handleAddClick}>
+                            <button className="btn-plus">+</button>
+                        </div>
+                    </div>
+                )}
+            </Slider>
+        </div>
+    );
 };
 
 export default Carousel;
