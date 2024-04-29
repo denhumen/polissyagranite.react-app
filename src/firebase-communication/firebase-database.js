@@ -1,22 +1,6 @@
 import { rtDatabase } from "../firebase-config";
 import { ref, get, update, push, set, onValue, child } from "firebase/database";
 
-function createSliderData(imgUrl, titles, descriptions) {
-    return {
-        img_url: imgUrl,
-        title: {
-            en: titles.en,
-            ua: titles.ua,
-            pl: titles.pl
-        },
-        description: {
-            en: descriptions.en,
-            ua: descriptions.ua,
-            pl: descriptions.pl
-        }
-    };
-}
-
 const add_new_slider = async (parentId, imgUrl, titles, descriptions) => {
     try {
         const dbRefRead = ref(rtDatabase, `sliders/${parentId}/sliders`);
@@ -50,4 +34,24 @@ const add_new_slider = async (parentId, imgUrl, titles, descriptions) => {
     }
 };
 
-export { add_new_slider };
+const get_sliders = async () => {
+    const dbRefRead = ref(rtDatabase, 'sliders/');
+    const snapshot = await get(dbRefRead);
+
+    if (snapshot.exists()) {
+        const slidersData = snapshot.val();
+        // Convert object of objects into an array of objects
+        
+        const list = Object.keys(slidersData).map(key => ({
+            id: key,
+            ...slidersData[key]
+        }));
+        console.log(list);
+        return list;
+    } else {
+        console.log('No sliders found');
+        return []; // Return an empty array if no sliders exist
+    }
+};
+
+export { add_new_slider, get_sliders };

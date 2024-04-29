@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../assets/css/carousel.css';
 
-const Carousel = ({ slides, isAdmin }) => {
+const Carousel = ({ slides, isAdmin, lang = 'en' }) => {
     const settings = {
         dots: true,
         infinite: true,
@@ -26,8 +26,8 @@ const Carousel = ({ slides, isAdmin }) => {
                     <div key={index} className="slide-content">
                         <img src={slide.image} alt={`Slide ${index}`} />
                         <div className="slide-info">
-                            <h2>{slide.title}</h2>
-                            <p>{slide.description}</p>
+                            <h2>{slide.title[lang]}</h2>  {/* Access specific language */}
+                            <p>{slide.description[lang]}</p>  {/* Access specific language */}
                             <button className="btn-primary">{slide.button1Text}</button>
                             <button className="btn-secondary">{slide.button2Text}</button>
                         </div>
