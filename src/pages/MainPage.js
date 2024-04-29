@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Main from '../components/Main';
 import Carousel from '../components/Carousel';
@@ -10,16 +10,22 @@ import image4 from "../assets/img/sliders/галтована_1.png"
 import image5 from "../assets/img/sliders/french-pavement-main.png"
 import Catalog from '../components/Catalog';
 import { uploadImage, deleteImage } from '../firebase-communication/firebase-storage';
-import { add_new_slider } from '../firebase-communication/firebase-database';
+import { add_new_slider, get_sliders } from '../firebase-communication/firebase-database';
 
-// Test, need to be deleted
 import { rtDatabase } from "../firebase-config";
 import { ref, get, update, push, set, onValue, child } from "firebase/database";
 
-
-
 function MainPage(){
     const [url, setUrl] = useState('');
+    const [sliderGroups, setSliderGroups] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const loadedSliderGroups = await get_sliders();
+            setSliderGroups(loadedSliderGroups);
+        };
+        fetchData();
+    }, []);
 
     const handleFileUpload = async (e) => {
         try {
@@ -77,7 +83,7 @@ function MainPage(){
           button2Text: "Button 4"
         },
         // Add more slides as needed
-      ];      
+      ];   
 
     return (
         <div>
@@ -93,8 +99,10 @@ function MainPage(){
 
             <button onClick={() => add_new_slider(2, testUrl, titles, descriptions)}> Add new slider </button>
 
+            {sliderGroups.map(group => (
+                <Carousel slides={group["sliders"]} isAdmin={true} />
+            ))};
 
-            <Carousel slides={slideData} isAdmin={true} />
             <Catalog />
             <Footer />
         </div>
