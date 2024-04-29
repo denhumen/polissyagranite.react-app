@@ -1,13 +1,16 @@
 import React from 'react';
 import Slider from 'react-slick';
+import AddImageModal from './AddImageModal';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import '../assets/css/carousel.css';
+import { useState } from 'react';
 
 const Carousel = ({ slides, isAdmin, lang = 'en' }) => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -16,15 +19,17 @@ const Carousel = ({ slides, isAdmin, lang = 'en' }) => {
     };
 
     const handleAddClick = () => {
-        console.log("Add new slide clicked!"); // Implement your functionality here
+        setModalIsOpen(true);
     };
 
     return (
+        
         <div className="carousel-container">
+            <AddImageModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} sliderId={slides["id"]} />
             <Slider {...settings}>
-                {slides.map((slide, index) => (
+                {slides["sliders"].map((slide, index) => (
                     <div key={index} className="slide-content">
-                        <img src={slide.image} alt={`Slide ${index}`} />
+                        <img className="slider-image" src={slide.img_url} alt={`Slide ${index}`} />
                         <div className="slide-info">
                             <h2>{slide.title[lang]}</h2>  {/* Access specific language */}
                             <p>{slide.description[lang]}</p>  {/* Access specific language */}
