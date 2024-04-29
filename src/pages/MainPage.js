@@ -83,7 +83,7 @@ function MainPage(){
           button2Text: "Button 4"
         },
         // Add more slides as needed
-      ];   
+      ];
 
     return (
         <div>
@@ -103,7 +103,7 @@ function MainPage(){
                 <Carousel slides={group["sliders"]} isAdmin={true} />
             ))};
 
-            <Catalog />
+            <Catalog isAdmin={true}/>
             <Footer />
         </div>
     );
