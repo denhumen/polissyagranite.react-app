@@ -1,10 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
+import AddImageModal from './AddImageModal';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import '../assets/css/carousel.css';
 
-const Carousel = ({ slides, isAdmin, lang = 'en' }) => {
+
+const Carousel = ({ slides, isAdmin, setModalIsOpen }) => {
     const settings = {
         dots: true,
         infinite: true,
@@ -16,7 +18,7 @@ const Carousel = ({ slides, isAdmin, lang = 'en' }) => {
     };
 
     const handleAddClick = () => {
-        console.log("Add new slide clicked!"); // Implement your functionality here
+      setModalIsOpen(true);
     };
 
     return (
@@ -26,8 +28,8 @@ const Carousel = ({ slides, isAdmin, lang = 'en' }) => {
                     <div key={index} className="slide-content">
                         <img src={slide.image} alt={`Slide ${index}`} />
                         <div className="slide-info">
-                            <h2>{slide.title[lang]}</h2>  {/* Access specific language */}
-                            <p>{slide.description[lang]}</p>  {/* Access specific language */}
+                            <h2>{slide.title}</h2>
+                            <p>{slide.description}</p>
                             <button className="btn-primary">{slide.button1Text}</button>
                             <button className="btn-secondary">{slide.button2Text}</button>
                         </div>
