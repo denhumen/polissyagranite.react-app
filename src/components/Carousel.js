@@ -4,9 +4,10 @@ import AddImageModal from './AddImageModal';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import '../assets/css/carousel.css';
+import { useState } from 'react';
 
-
-const Carousel = ({ slides, isAdmin, setModalIsOpen }) => {
+const Carousel = ({ slides, isAdmin, lang = 'en' }) => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const settings = {
         dots: true,
         infinite: true,
@@ -18,18 +19,20 @@ const Carousel = ({ slides, isAdmin, setModalIsOpen }) => {
     };
 
     const handleAddClick = () => {
-      setModalIsOpen(true);
+        setModalIsOpen(true);
     };
 
     return (
+        
         <div className="carousel-container">
+            <AddImageModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
             <Slider {...settings}>
                 {slides.map((slide, index) => (
                     <div key={index} className="slide-content">
                         <img src={slide.image} alt={`Slide ${index}`} />
                         <div className="slide-info">
-                            <h2>{slide.title}</h2>
-                            <p>{slide.description}</p>
+                            <h2>{slide.title[lang]}</h2>  {/* Access specific language */}
+                            <p>{slide.description[lang]}</p>  {/* Access specific language */}
                             <button className="btn-primary">{slide.button1Text}</button>
                             <button className="btn-secondary">{slide.button2Text}</button>
                         </div>

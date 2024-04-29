@@ -16,12 +16,10 @@ import { add_new_slider, get_sliders } from '../firebase-communication/firebase-
 
 import { rtDatabase } from "../firebase-config";
 import { ref, get, update, push, set, onValue, child } from "firebase/database";
-import AddImageModal from '../components/AddImageModal';
 
 function MainPage(){
     const [url, setUrl] = useState('');
     const [sliderGroups, setSliderGroups] = useState([]);
-    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -92,9 +90,6 @@ function MainPage(){
     return (
         <div>
             <Main />
-
-            <AddImageModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
-
             <input type="file" onChange={(e) => handleFileUpload(e)}/>
             {url && (
                 <div>
