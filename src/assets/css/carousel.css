@@ -34,7 +34,7 @@
 
 .slide-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -148,4 +148,8 @@
     color: white;
     font-size: 48px;
     cursor: pointer;
+}
+
+.slider-image{
+    max-height: 400px;
 }

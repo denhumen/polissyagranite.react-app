@@ -10,7 +10,7 @@ const Carousel = ({ slides, isAdmin, lang = 'en' }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -25,11 +25,11 @@ const Carousel = ({ slides, isAdmin, lang = 'en' }) => {
     return (
         
         <div className="carousel-container">
-            <AddImageModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+            <AddImageModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} sliderId={slides["id"]} />
             <Slider {...settings}>
-                {slides.map((slide, index) => (
+                {slides["sliders"].map((slide, index) => (
                     <div key={index} className="slide-content">
-                        <img src={slide.image} alt={`Slide ${index}`} />
+                        <img className="slider-image" src={slide.img_url} alt={`Slide ${index}`} />
                         <div className="slide-info">
                             <h2>{slide.title[lang]}</h2>  {/* Access specific language */}
                             <p>{slide.description[lang]}</p>  {/* Access specific language */}

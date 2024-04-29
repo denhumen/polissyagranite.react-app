@@ -3,6 +3,7 @@ import { ref, get, update, push, set, onValue, child } from "firebase/database";
 
 const add_new_slider = async (parentId, imgUrl, titles, descriptions) => {
     try {
+        console.log("1:" + imgUrl);
         const dbRefRead = ref(rtDatabase, `sliders/${parentId}/sliders`);
         const snapshot = await get(dbRefRead);
 

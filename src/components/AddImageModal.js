@@ -5,17 +5,17 @@ import { set } from "@firebase/database";
 import { useState } from "react";
 import { add_new_slider } from "../firebase-communication/firebase-database";
 
-function AddImageModal({ modalIsOpen, setModalIsOpen }) {
+function AddImageModal({ modalIsOpen, setModalIsOpen, sliderId }) {
   const [url, setUrl] = useState("");
   const [image, setImage] = useState();
   const [title, setTitle] = useState({
-    uk: "",
+    ua: "",
     en: "",
     pl: "",
   });
 
   const [description, setDescription] = useState({
-    uk: "",
+    ua: "",
     en: "",
     pl: "",
   });
@@ -26,21 +26,22 @@ function AddImageModal({ modalIsOpen, setModalIsOpen }) {
 
   const handleAddImage = async () => {
     try {
-      const url = await uploadImage(image);
-      setUrl(url);
-      console.log("Uploaded image URL:", url);
+      const imgUrl = await uploadImage(image);
+      setUrl(imgUrl);
+      console.log("Uploaded image URL:", imgUrl);
+
+      await add_new_slider(sliderId, imgUrl, title, description);
     } catch (error) {
-      setUrl("");
       console.error("Error uploading image:", error);
+      setUrl("");
     }
-    add_new_slider() //======================================================================================================================
   };
 
   return (
     <Modal
       isOpen={modalIsOpen}
       onRequestClose={() => setModalIsOpen(false)}
-      contentLabel="Add Image Modal"
+      contentLabel="Add Slide Modal"
     >
       <div>
         <h2>Add New Image</h2>
@@ -50,7 +51,7 @@ function AddImageModal({ modalIsOpen, setModalIsOpen }) {
             type="text"
             placeholder="Title in Ukrainian"
             value={title.uk}
-            onChange={(e) => setTitle({ ...title, uk: e.target.value })}
+            onChange={(e) => setTitle({ ...title, ua: e.target.value })}
           />
           <input
             type="text"
@@ -71,7 +72,7 @@ function AddImageModal({ modalIsOpen, setModalIsOpen }) {
             placeholder="Description in Ukrainian"
             value={description.uk}
             onChange={(e) =>
-              setDescription({ ...description, uk: e.target.value })
+              setDescription({ ...description, ua: e.target.value })
             }
           />
           <input

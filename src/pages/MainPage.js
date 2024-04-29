@@ -90,21 +90,11 @@ function MainPage(){
     return (
         <div>
             <Main />
-            <input type="file" onChange={(e) => handleFileUpload(e)}/>
-            {url && (
-                <div>
-                    <img src={url} alt="Uploaded" style={{ width: '100px', height: 'auto' }} />
-                    <button onClick={handleDeleteImage}>Delete Image</button>
-                </div>
-            )}
-
-            <button onClick={() => add_new_slider(2, testUrl, titles, descriptions)}> Add new slider </button>
-
+            
             {sliderGroups.map(group => (
-                <Carousel slides={group["sliders"]} isAdmin={true} />
+                <Carousel slides={group} isAdmin={true} />
             ))};
 
-            <Catalog />
             <Footer />
         </div>
     );
