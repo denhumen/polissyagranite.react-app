@@ -14,6 +14,11 @@
         "description": "Kamień naturalny - to materiał, który nie tylko zaskakuje swoim pięknem, ale jest także niezawodnym, trwałym i doskonałym rozwiązaniem do budowy wnętrz i na zewnątrz. POLISSYA GRANITE - Ukraińskie wyroby granitowe bezpośrednio od producenta z wieloletnim doświadczeniem oraz gwarantacją jakości od naszych specjalistów"
     },
 
+    "buttons" : {
+        "order-button" : "Zamówić",
+        "more-button" : "Zobacz więcej"
+    },
+
     "footer" : {
          "title": "Produkty do zamówienia w POLISSYA GRANITE",
          "description": "Oferujemy produkcję wyrobów z kamienia naturalnego według Państwa szkiców i projektów. Produkujemy dowolne wyroby z kamienia naturalnego w cenach bez pośredników.",

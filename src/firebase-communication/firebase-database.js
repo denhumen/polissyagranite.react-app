@@ -1,5 +1,6 @@
 import { rtDatabase } from "../firebase-config";
 import { ref, get, update, push, set, onValue, child } from "firebase/database";
+import { deleteImage } from "./firebase-storage";
 
 const add_new_slider = async (parentId, imgUrl, titles, descriptions) => {
     try {
@@ -55,4 +56,21 @@ const get_sliders = async () => {
     }
 };
 
-export { add_new_slider, get_sliders };
+const delete_slider = async (parentId, sliderId, imgUrl) => {
+    try {
+
+        await deleteImage(imgUrl);
+
+        const dbRef = ref(rtDatabase, `sliders/${parentId}/sliders/${sliderId}`);
+        await set(dbRef, null).then( () => {
+            alert("Success!");
+        }).catch( (error) => {
+            alert("Error!")
+        });
+        console.log(`Slider with ID: ${sliderId} has been deleted successfully.`);
+    } catch (error) {
+        console.error(`Failed to delete slider with ID: ${sliderId}`, error);
+    }
+};
+
+export { add_new_slider, get_sliders, delete_slider };

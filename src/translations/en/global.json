@@ -14,6 +14,11 @@
         "description": "Natural stone is a material that not only surprises with its beauty, but is also a reliable, durable and elegant solution for interior and exterior. POLISSYA GRANITE - products from Ukrainian granites directly from the manufacturer with many years of experience"
     },
 
+    "buttons" : {
+        "order-button" : "Order",
+        "more-button" : "Show more"
+    },
+
     "footer" : {
          "title": "Products to order from POLISSYA GRANITE",
          "description": "We offer the manufacture of natural stone products according to your sketches and designs. We produce any products from natural stone at prices without intermediaries.",

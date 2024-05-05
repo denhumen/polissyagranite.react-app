@@ -153,3 +153,21 @@
 .slider-image{
     max-height: 400px;
 }
+
+.slide-content {
+    position: relative;
+}
+
+.btn-delete {
+    position: absolute;
+    top: 10px; /* Adjust according to your layout */
+    right: 10px; /* Adjust according to your layout */
+    background: none;
+    border: none;
+    color: red; /* You can choose any color */
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    color: darkred; /* Darken the color on hover */
+}

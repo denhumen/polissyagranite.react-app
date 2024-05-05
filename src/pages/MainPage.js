@@ -16,6 +16,7 @@ import { add_new_slider, get_sliders } from '../firebase-communication/firebase-
 
 import { rtDatabase } from "../firebase-config";
 import { ref, get, update, push, set, onValue, child } from "firebase/database";
+import CarouselGroup from '../components/CarouselGroup';
 
 function MainPage(){
     const [url, setUrl] = useState('');
@@ -29,71 +30,13 @@ function MainPage(){
         fetchData();
     }, []);
 
-    const handleFileUpload = async (e) => {
-        try {
-            const url = await uploadImage(e);
-            setUrl(url);
-            console.log('Uploaded image URL:', url);
-        } catch (error) {
-            setUrl('');
-            console.error('Error uploading image:', error);
-        }
-    };
-
-    const handleDeleteImage = async () => {
-        if (!url) {
-            alert('No image URL available to delete');
-            return;
-        }
-
-        try {
-            await deleteImage(url);
-            setUrl('');
-            console.log('Image deleted successfully');
-        } catch (error) {
-            console.error('Error deleting image:', error);
-        }
-    };
-
-    const testUrl = "http://example.com/new-image.jpg";
-
-    const titles = {
-        en: "New Slider",
-        ua: "Новий слайдер",
-        pl: "Nowy suwak"
-    };
-
-    const descriptions = {
-        en: "New slider description in English",
-        ua: "Опис нового слайдера українською",
-        pl: "Opis nowego suwaka po polsku"
-    };
-
-    const slideData = [
-        {
-          image: "https://firebasestorage.googleapis.com/v0/b/polissya-granite.appspot.com/o/main_pavement.png?alt=media&token=daab0c38-4662-4505-82e5-55d3597f0f70",
-          title: "Slide 1 Title",
-          description: "Description for Slide 1",
-          button1Text: "Button 1",
-          button2Text: "Button 2"
-        },
-        {
-          image: "https://firebasestorage.googleapis.com/v0/b/polissya-granite.appspot.com/o/%D0%B3%D0%B0%D0%BB%D1%82%D0%BE%D0%B2%D0%B0%D0%BD%D0%B0_1.png?alt=media&token=696bbb2a-d8c0-4594-8ff6-5192e4ac4e79",
-          title: "Slide 2 Title",
-          description: "Description for Slide 2",
-          button1Text: "Button 3",
-          button2Text: "Button 4"
-        },
-        // Add more slides as needed
-      ];   
-
     return (
         <div>
             <Main />
             
-            {sliderGroups.map(group => (
-                <Carousel slides={group} isAdmin={true} />
-            ))};
+            <CarouselGroup slidersGroups={sliderGroups} isAdmin={true}/>
+
+            <Catalog />
 
             <Footer />
         </div>

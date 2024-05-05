@@ -5,7 +5,7 @@ import { set } from "@firebase/database";
 import { useState } from "react";
 import { add_new_slider } from "../firebase-communication/firebase-database";
 
-function AddImageModal({ modalIsOpen, setModalIsOpen, sliderId }) {
+function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
   const [url, setUrl] = useState("");
   const [image, setImage] = useState();
   const [title, setTitle] = useState({
@@ -43,6 +43,9 @@ function AddImageModal({ modalIsOpen, setModalIsOpen, sliderId }) {
       onRequestClose={() => setModalIsOpen(false)}
       contentLabel="Add Slide Modal"
     >
+      <button onClick={() => setModalIsOpen(false)} style={{ float: "right", cursor: "pointer" }}>
+        Close
+      </button>
       <div>
         <h2>Add New Image</h2>
         <input type="file" accept="image/*" onChange={handleFileUpload} />
@@ -101,4 +104,4 @@ function AddImageModal({ modalIsOpen, setModalIsOpen, sliderId }) {
   );
 }
 
-export default AddImageModal;
+export default AddSliderModal;
