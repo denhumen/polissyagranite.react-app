@@ -36,8 +36,7 @@ function MainPage(){
             
             <CarouselGroup slidersGroups={sliderGroups} isAdmin={true}/>
 
-            <Catalog />
-
+            <Catalog isAdmin={true}/>
             <Footer />
         </div>
     );
