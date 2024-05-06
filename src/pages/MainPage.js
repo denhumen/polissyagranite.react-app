@@ -10,10 +10,7 @@ import image4 from "../assets/img/sliders/галтована_1.png"
 import image5 from "../assets/img/sliders/french-pavement-main.png"
 import Catalog from '../components/Catalog';
 import { uploadImage, deleteImage } from '../firebase-communication/firebase-storage';
-import { add_new_slider, get_sliders } from '../firebase-communication/firebase-database';
-
-
-
+import { add_new_slider, get_sliders, get_stone_gallery } from '../firebase-communication/firebase-database';
 import { rtDatabase } from "../firebase-config";
 import { ref, get, update, push, set, onValue, child } from "firebase/database";
 import CarouselGroup from '../components/CarouselGroup';
@@ -21,6 +18,7 @@ import CarouselGroup from '../components/CarouselGroup';
 function MainPage(){
     const [url, setUrl] = useState('');
     const [sliderGroups, setSliderGroups] = useState([]);
+    const [stoneGallery, setStoneGallery] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,13 +28,27 @@ function MainPage(){
         fetchData();
     }, []);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const loadedStoneGallery = await get_stone_gallery();
+            setStoneGallery(loadedStoneGallery);
+        };
+        fetchData();
+    }, []);
+
+    const handleButtonClick = async () => {
+        const stG = await get_stone_gallery();
+        console.log(stG);
+    }
+
     return (
         <div>
             <Main />
             
             <CarouselGroup slidersGroups={sliderGroups} isAdmin={true}/>
-
-            <Catalog isAdmin={true}/>
+        
+            <Catalog catalogData={stoneGallery} isAdmin={true}/>
+            
             <Footer />
         </div>
     );

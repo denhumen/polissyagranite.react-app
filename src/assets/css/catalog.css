@@ -1,0 +1,64 @@
+.catalogContainer {
+    margin: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    justify-content: center;
+}
+
+.catalogItem {
+    width: 18%;
+    padding: 10px;
+}
+
+.catalogImage {
+    width: 100%;
+}
+
+.catalogCaption {
+    text-align: center;
+}
+
+.addButtonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.addButtonContainer {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.addButton {
+    background-color: #1B3544;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%; /* Make the button circular */
+    width: 50px;
+    height: 50px;
+    line-height: 30px; /* Adjust line height to vertically center the plus sign */
+}
+
+.deleteButton {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catalogItem {
+    position: relative; /* Needed for absolute positioning of the delete button */
+}

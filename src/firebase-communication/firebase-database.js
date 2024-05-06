@@ -4,7 +4,6 @@ import { deleteImage } from "./firebase-storage";
 
 const add_new_slider = async (parentId, imgUrl, titles, descriptions) => {
     try {
-        console.log("1:" + imgUrl);
         const dbRefRead = ref(rtDatabase, `sliders/${parentId}/sliders`);
         const snapshot = await get(dbRefRead);
 
@@ -42,23 +41,20 @@ const get_sliders = async () => {
 
     if (snapshot.exists()) {
         const slidersData = snapshot.val();
-        // Convert object of objects into an array of objects
-        
+
         const list = Object.keys(slidersData).map(key => ({
             id: key,
             ...slidersData[key]
         }));
-        console.log(list);
         return list;
     } else {
         console.log('No sliders found');
-        return []; // Return an empty array if no sliders exist
+        return [];
     }
 };
 
 const delete_slider = async (parentId, sliderId, imgUrl) => {
     try {
-
         await deleteImage(imgUrl);
 
         const dbRef = ref(rtDatabase, `sliders/${parentId}/sliders/${sliderId}`);
@@ -73,4 +69,71 @@ const delete_slider = async (parentId, sliderId, imgUrl) => {
     }
 };
 
-export { add_new_slider, get_sliders, delete_slider };
+const add_stone_gallery_element = async (imgUrl, title) => {
+    try {
+        const dbRefRead = ref(rtDatabase, 'stone-galery/');
+        const snapshot = await get(dbRefRead);
+
+        let newId = 1;
+        if (snapshot.exists()) {
+            const stoneGalleryData = snapshot.val();
+            const ids = Object.keys(stoneGalleryData).map(key => stoneGalleryData[key].id);
+            newId = ids.length > 0 ? Math.max(...ids) + 1 : 1;
+        }
+
+        const dbRefWrite = ref(rtDatabase, `stone-galery/${newId}`)
+
+        set(dbRefWrite, 
+            {
+                id: newId,
+                img_url: imgUrl,
+                title: title,
+            }
+        ).then( () => {
+            alert("Success!");
+        }).catch( (error) => {
+            alert("Error!")
+        });
+        
+        console.log("New stone added successfully with ID:", newId);
+    }
+    catch (error) {
+        console.error("Failed to add new stone to gallery:", error);
+    }
+};
+
+const delete_stone_gallery_element = async (stoneId, imgUrl) => {
+    try {
+        await deleteImage(imgUrl);
+
+        const dbRef = ref(rtDatabase, `stone-galery/${stoneId}`);
+        await set(dbRef, null).then( () => {
+            alert("Success!");
+        }).catch( (error) => {
+            alert("Error!")
+        });
+        console.log(`Slider with ID: ${stoneId} has been deleted successfully.`);
+    } catch (error) {
+        console.error(`Failed to delete slider with ID: ${stoneId}`, error);
+    }
+};
+
+const get_stone_gallery = async () => {
+    const dbRefRead = ref(rtDatabase, 'stone-galery/');
+    const snapshot = await get(dbRefRead);
+
+    if (snapshot.exists()) {
+        const stoneGalleryData = snapshot.val();
+
+        const list = Object.keys(stoneGalleryData).map(key => ({
+            id: key,
+            ...stoneGalleryData[key]
+        }));
+        return list;
+    } else {
+        console.log('No sliders found');
+        return [];
+    }
+};
+
+export { add_new_slider, get_sliders, delete_slider, add_stone_gallery_element, delete_stone_gallery_element, get_stone_gallery };
