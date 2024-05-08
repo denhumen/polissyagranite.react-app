@@ -1,7 +1,9 @@
 .carousel-container {
     max-width: 1200px;
+    width: 100%;
     margin: auto;
     padding: 20px;
+    position:relative;
 }
 
 .slick-slide {
@@ -9,21 +11,41 @@
     color: #1B3544;
     font-family: 'PTSerif', serif;
     background-color: #F3EADE;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    position: relative;
 }
 
 .slick-slide img {
-    width: 58%;
-    max-width: 100%;
     height: auto;
+    width: auto;
+    max-height: 60%;
+    max-width: 35%;
+    padding: 20px;
 }
-
 .slick-prev, .slick-next {
     color: #1B3544 !important;
     z-index: 1;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
+
+.slick-prev {
+    left: 1%;
+}
+
+.slick-next {
+    right: 1.8%;
+}
+
 
 .slick-prev:before, .slick-next:before {
     font-size: 30px;
@@ -33,15 +55,18 @@
 }
 
 .slide-content {
-    display: flex;
-    flex-direction: row;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100%;
+    height: 500px;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
 
 .slide-info {
     padding: 20px;
+    width: 50%;
+    font-size:x-large;
 }
 
 .btn-primary, .btn-secondary {
@@ -49,13 +74,16 @@
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
-    font-size: 16px;
     cursor: pointer;
+    font-weight: bold;
+    border-radius: 1px;
 }
 
 .btn-primary {
     background-color: #1B3544;
     color: white;
+    border: 1px solid #1B3544;
+    transition: background-color 0.5s;
 }
 
 .btn-secondary {
@@ -77,41 +105,7 @@
     background-color: #F3EADE;
 }
 
-.admin-plus-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #1B3544;
-    color: white;
-    font-size: 48px;
-    cursor: pointer;
-}
-
-.btn-plus {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 48px;
-    cursor: pointer;
-}
-
-/* carousel.css */
-.carousel-container {
-    width: 100%;
-    margin: auto;
-}
-
-.slick-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%; /* Ensuring slides have the same height */
-}
-
-.slide-content, .admin-add-slide {
+.admin-add-slide {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,55 +113,46 @@
     width: 100%; /* Ensure full width use */
     height: 500px; /* or whatever height your slides are */
     text-align: center;
-}
-
-.slide-info {
-    padding: 20px;
-}
-
-.admin-add-slide {
-    background-color: #F3EADE; /* Choose a background color that fits your design */
+    background-color: #F3EADE;
 }
 
 .admin-plus-button {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: #1B3544; /* Adjust color to match your theme */
+    background-color: #1B3544;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 48px; /* Large plus sign */
-    cursor: pointer;
-}
-
-.btn-plus {
-    background: none;
-    border: none;
-    color: white;
     font-size: 48px;
     cursor: pointer;
+    transition: background-color 0.2s;
+    border: 1px solid #1B3544;
 }
+
+.admin-plus-button:hover {
+    color: #1B3544;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
 
 .slider-image{
     max-height: 400px;
 }
 
-.slide-content {
-    position: relative;
-}
-
 .btn-delete {
     position: absolute;
-    top: 10px; /* Adjust according to your layout */
-    right: 10px; /* Adjust according to your layout */
+    top: 10px;
+    right: 10px;
     background: none;
     border: none;
-    color: red; /* You can choose any color */
+    color: red;
     cursor: pointer;
+    font-size: 24px;
 }
 
 .btn-delete:hover {
-    color: darkred; /* Darken the color on hover */
+    color: darkred;
 }

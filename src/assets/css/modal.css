@@ -3,10 +3,29 @@
     flex-direction: row;
     width: 50%;
     justify-content: space-between;
-    margin: 10px auto;
+    margin: 0 auto;
+
+}
+
+.input-div input {
+    width: 100%;
     padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .ReactModal__Overlay {
     z-index: 1000;
+}
+
+.ReactModal__Content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
 }

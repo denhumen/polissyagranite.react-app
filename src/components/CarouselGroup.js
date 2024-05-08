@@ -6,10 +6,10 @@ const CarouselGroup = ({ slidersGroups, isAdmin, lang = 'en' }) => {
     return (
         <>
             {slidersGroups.map(group => (
-                <Carousel slides={group} isAdmin={isAdmin} lang={lang} />
+                <Carousel slides={group} isAdmin={isAdmin} />
             ))};
             {isAdmin &&
-                <Carousel slides={[]} isAdmin={isAdmin} lang={lang} />
+                <Carousel slides={[]} isAdmin={isAdmin} />
             }
         </>
     );
