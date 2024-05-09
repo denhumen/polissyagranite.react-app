@@ -8,6 +8,8 @@ import { add_new_slider } from "../firebase-communication/firebase-database";
 function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
   const [url, setUrl] = useState("");
   const [image, setImage] = useState();
+  const [imagePreview, setImagePreview] = useState(null);
+  
   const [title, setTitle] = useState({
     ua: "",
     en: "",
@@ -20,8 +22,29 @@ function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
     pl: "",
   });
 
+
+  const handleModalClose = () => {
+    setModalIsOpen(false);
+    setImage(null);
+    setImagePreview(null);
+    setTitle({ ua: "", en: "", pl: "" });
+    setDescription({ ua: "", en: "", pl: "" });
+    setUrl("");
+  }
+
   const handleFileUpload = async (e) => {
-    setImage(e);
+    const file = e.target.files[0];
+    if (file) {
+      setImage(e);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setImage(null);
+      setImagePreview(null);
+    }
   };
 
   const handleAddImage = async () => {
@@ -31,6 +54,8 @@ function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
       console.log("Uploaded image URL:", imgUrl);
 
       await add_new_slider(sliderId, imgUrl, title, description);
+      handleModalClose();
+      window.location.reload();
     } catch (error) {
       console.error("Error uploading image:", error);
       setUrl("");
@@ -40,15 +65,30 @@ function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
   return (
     <Modal
       isOpen={modalIsOpen}
-      onRequestClose={() => setModalIsOpen(false)}
+      onRequestClose={() => {
+        handleModalClose();
+      }}
       contentLabel="Add Slide Modal"
+      className="modal"
     >
-      <button onClick={() => setModalIsOpen(false)} style={{ float: "right", cursor: "pointer" }}>
-        Close
+      <button
+        onClick={() => setModalIsOpen(false)}
+        style={{ float: "right", cursor: "pointer", fontSize: "1.5rem" }}
+      >
+        ✖️
       </button>
       <div>
-        <h2>Add New Image</h2>
+        <h2 style={{ textAlign: "center" }}>Add New Image</h2>
         <input type="file" accept="image/*" onChange={handleFileUpload} />
+        {imagePreview && (
+          <div style={{ textAlign: "center", margin: "10px 0" }}>
+            <img
+              src={imagePreview}
+              alt="Preview"
+              style={{ maxWidth: "100%", maxHeight: "300px" }}
+            />
+          </div>
+        )}
         <div className="input-div">
           <input
             type="text"

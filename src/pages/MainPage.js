@@ -14,6 +14,7 @@ import { add_new_slider, get_sliders, get_stone_gallery } from '../firebase-comm
 import { rtDatabase } from "../firebase-config";
 import { ref, get, update, push, set, onValue, child } from "firebase/database";
 import CarouselGroup from '../components/CarouselGroup';
+import { useTranslation } from 'react-i18next';
 
 function MainPage(){
     const [url, setUrl] = useState('');
@@ -45,7 +46,7 @@ function MainPage(){
         <div>
             <Main />
             
-            <CarouselGroup slidersGroups={sliderGroups} isAdmin={true}/>
+            <CarouselGroup slidersGroups={sliderGroups} isAdmin={true} />
         
             <Catalog catalogData={stoneGallery} isAdmin={true}/>
             
