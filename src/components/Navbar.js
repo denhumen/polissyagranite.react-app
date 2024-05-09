@@ -13,7 +13,7 @@ function Navbar() {
                     <span className="line line3"></span>
                 </div>
                 <ul className="menu-items">
-                    <li><a href="/">Головна</a></li>
+                    <li><a href="/">Головна сторінка</a></li>
                     <li><a href="#pavement-area">Бруківка</a></li>
                     <li><a href="#tile-area">Плитка</a></li>
                     <li><a href="#slabs-area">Слеби</a></li>
