@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #333;
+    background: #F3EADE;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -17,11 +17,15 @@
 }
 
 .logo img {
-    height: 50px;
+    top: 5px;
+    right: -70px;
+    font-size: 2rem;
 }
 
 .menu {
     display: flex;
+    white-space: nowrap;
+
 }
 
 .menu.open {
@@ -37,11 +41,13 @@
 
 .menu li {
     padding: 10px;
+    
 }
 
 .menu li a {
-    color: white;
     text-decoration: none;
+    color: #0B0B0B;
+    font-weight: 500;
 }
 
 .hamburger {
@@ -87,18 +93,39 @@
         display: block;
     }
 
-    .menu {
-        position: absolute;
-        top: 60px;
+
+    .menu.open {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+    }
+
+    /* .menu {
+        position: relative;
+        top: 0px;
         left: 0;
         width: 100%;
-        background-color: #333;
+        background-color: #F3EADE;
+
+    } */
+    .menu{
         display: none;
-        flex-direction: column;
     }
 
     .menu li {
         text-align: center;
         width: 100%;
+        
+    }
+
+    .nav_list{
+        background: #F3EADE;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: -100vw;
+        top: 10vw;
+        
     }
 }

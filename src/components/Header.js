@@ -23,17 +23,18 @@ function Header() {
     return (
         <header className="navbar">
             <div className="navbar-container container">
-                <a href="/" className="logo">
-                    <img src={logo} alt="Logo" />
-                </a>
-                <input type="checkbox" id="menu-toggle" checked={isMenuOpen} onChange={toggleMenu} className="menu-toggle" />
+            <input type="checkbox" id="menu-toggle" checked={isMenuOpen} onChange={toggleMenu} className="menu-toggle" />
                 <label htmlFor="menu-toggle" className="hamburger">
                     <span className="hamburger-line"></span>
                     <span className="hamburger-line"></span>
                     <span className="hamburger-line"></span>
                 </label>
+                <a href="/" className="logo">
+                    <img src={logo} alt="Logo" />
+                </a>
+                
                 <nav className={`menu ${isMenuOpen ? 'open' : ''}`}>
-                    <ul>
+                    <ul className="nav_list">
                         <li><a href="#home">{t("header.menu1")}</a></li>
                         <li><a href="#about">{t("header.menu2")}</a></li>
                         <li><a href="#services">{t("header.menu3")}</a></li>
