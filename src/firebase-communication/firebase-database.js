@@ -4,6 +4,19 @@ import { deleteImage } from "./firebase-storage";
 
 const add_new_slider = async (parentId, imgUrl, titles, descriptions) => {
     try {
+        const slidersRef = ref(rtDatabase, 'sliders/');
+        const slidersSnapshot = await get(slidersRef);
+
+        if (!slidersSnapshot.exists()) {
+            parentId = 1;
+            const firstGroupRef = ref(rtDatabase, `sliders/${parentId}`);
+            await set(firstGroupRef, {});
+        } else if (!parentId) {
+            const slidersData = slidersSnapshot.val();
+            const parentIds = Object.keys(slidersData).map(key => parseInt(key));
+            parentId = parentIds.length > 0 ? Math.max(...parentIds) + 1 : 1;
+        }
+
         const dbRefRead = ref(rtDatabase, `sliders/${parentId}/sliders`);
         const snapshot = await get(dbRefRead);
 

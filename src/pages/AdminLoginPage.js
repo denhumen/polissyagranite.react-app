@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { auth } from '../firebase-config';
 import '../assets/css/AdminLoginPage.css'; // Assume you create this CSS file
+import { login } from '../firebase-communication/firebase-auth';
 
 function AdminLoginPage() {
   const [email, setEmail] = useState('');
@@ -7,7 +10,7 @@ function AdminLoginPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Email:', email, 'Password:', password);
+    login(email, password);
   };
 
   return (
