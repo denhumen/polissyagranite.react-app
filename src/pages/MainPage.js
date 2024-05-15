@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Main from '../components/Main';
+import { useAuth } from '../context/AuthContext';
 import Carousel from '../components/Carousel';
 import image0 from "../assets/img/sliders/main_pavement.png"
 import image1 from "../assets/img/sliders/пилена_1.png"
@@ -15,8 +16,12 @@ import { rtDatabase } from "../firebase-config";
 import { ref, get, update, push, set, onValue, child } from "firebase/database";
 import CarouselGroup from '../components/CarouselGroup';
 import { useTranslation } from 'react-i18next';
+import { logout } from '../firebase-communication/firebase-auth';
 
 function MainPage(){
+    const { user } = useAuth();
+    const isAdmin = !!user;
+
     const [url, setUrl] = useState('');
     const [sliderGroups, setSliderGroups] = useState([]);
     const [stoneGallery, setStoneGallery] = useState([]);
@@ -37,19 +42,14 @@ function MainPage(){
         fetchData();
     }, []);
 
-    const handleButtonClick = async () => {
-        const stG = await get_stone_gallery();
-        console.log(stG);
-    }
-
     return (
         <div>
-            <Main />
+            <Main isAdmin={isAdmin} />
             
-            <CarouselGroup slidersGroups={sliderGroups} isAdmin={true} />
+            <CarouselGroup slidersGroups={sliderGroups} isAdmin={isAdmin} />
         
-            <Catalog catalogData={stoneGallery} isAdmin={true}/>
-            
+            <Catalog catalogData={stoneGallery} isAdmin={isAdmin}/>
+        
             <Footer />
         </div>
     );

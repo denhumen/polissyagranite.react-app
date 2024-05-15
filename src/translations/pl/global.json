@@ -6,7 +6,8 @@
         "menu4" : "Płyty",
         "menu5" : "Krawężnik",
         "menu6" : "Katalog kamieni",
-        "menu7" : "Zamówić"
+        "menu7" : "Zamówić",
+        "logout": "Wylogowanie"
     },
 
     "main" : {

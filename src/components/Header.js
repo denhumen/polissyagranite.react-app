@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../assets/css/navbar.css';
 import logo from "../assets/img/main-logo.svg";
+import { logout } from '../firebase-communication/firebase-auth';
 
-function Header() {
+function Header({isAdmin}) {
     const [t, i18n] = useTranslation("global");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -52,6 +53,11 @@ function Header() {
                                 </ul>
                             )}
                         </li>
+                        {isAdmin && 
+                            (
+                            <li><a href="#" onClick={() => logout()}>{t("header.logout")}</a></li>
+                            )
+                        }
                     </ul>
                 </nav>
             </div>
