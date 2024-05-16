@@ -1,9 +1,26 @@
 import { rtDatabase } from "../firebase-config";
 import { ref, get, update, push, set, onValue, child } from "firebase/database";
 import { deleteImage } from "./firebase-storage";
+import { toast } from "react-custom-alert";
+
+const alertSuccess = (text) => toast.success(text);
+const alertError = (text) => toast.error(text);
 
 const add_new_slider = async (parentId, imgUrl, titles, descriptions) => {
     try {
+        const slidersRef = ref(rtDatabase, 'sliders/');
+        const slidersSnapshot = await get(slidersRef);
+
+        if (!slidersSnapshot.exists()) {
+            parentId = 1;
+            const firstGroupRef = ref(rtDatabase, `sliders/${parentId}`);
+            await set(firstGroupRef, {});
+        } else if (!parentId) {
+            const slidersData = slidersSnapshot.val();
+            const parentIds = Object.keys(slidersData).map(key => parseInt(key));
+            parentId = parentIds.length > 0 ? Math.max(...parentIds) + 1 : 1;
+        }
+
         const dbRefRead = ref(rtDatabase, `sliders/${parentId}/sliders`);
         const snapshot = await get(dbRefRead);
 
@@ -24,9 +41,9 @@ const add_new_slider = async (parentId, imgUrl, titles, descriptions) => {
                 description: descriptions
             }
         ).then( () => {
-            alert("Success!");
+            alertSuccess("New slider added successfully.");
         }).catch( (error) => {
-            alert("Error!")
+            alertError("Failed to add new slider.")
         });
       
         console.log("New slider added successfully with ID:", newId);
@@ -90,9 +107,9 @@ const add_stone_gallery_element = async (imgUrl, title) => {
                 title: title,
             }
         ).then( () => {
-            alert("Success!");
+            alertSuccess("New stone added successfully with");
         }).catch( (error) => {
-            alert("Error!")
+            alertError("Failed to add new stone to gallery")
         });
         
         console.log("New stone added successfully with ID:", newId);

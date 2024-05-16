@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import '../assets/css/AdminLoginPage.css'; // Assume you create this CSS file
+import '../assets/css/AdminLoginPage.css';
+import { login } from '../firebase-communication/firebase-auth';
+import { useNavigate } from 'react-router-dom';
 
 function AdminLoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Email:', email, 'Password:', password);
+    login(email, password);
+    navigate('/');
   };
 
   return (

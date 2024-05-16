@@ -6,12 +6,12 @@ import Carousel from './Carousel';
 import { useTranslation } from 'react-i18next';
 import Katalog from './Catalog';
 
-function Main() {
+function Main({isAdmin}) {
     const [t, i18n] = useTranslation("global");
 
     return (
         <div>
-            <Header />
+            <Header isAdmin={isAdmin} />
             <div className="main-block" style={{backgroundImage: `url(${mainblockBg})`}}>
                 <div className="main-block-text-block">
                     {/* <div class="text1">100% Гарантія Якості</div> */}

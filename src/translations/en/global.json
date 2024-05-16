@@ -6,7 +6,8 @@
         "menu4" : "Slabs",
         "menu5" : "Border",
         "menu6" : "Stone catalog",
-        "menu7" : "Order"
+        "menu7" : "Order",
+        "logout": "Logout"
     },
 
     "main" : {

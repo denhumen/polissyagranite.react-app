@@ -55,7 +55,7 @@ function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
 
       await add_new_slider(sliderId, imgUrl, title, description);
       handleModalClose();
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.error("Error uploading image:", error);
       setUrl("");
