@@ -44,7 +44,7 @@ function Header({isAdmin}) {
                         <li><a href="#blog">{t("header.menu6")}</a></li>
                         <li><a href="#contact">{t("header.menu7")}</a></li>
                         <li onClick={toggleDropdown} className="dropdown">
-                            <a href="#">Languages</a>
+                            <a href="#">{t("header.lang")}</a>
                             {isDropdownOpen && (
                                 <ul className="dropdown-content">
                                     <li onClick={() => handleLanguageChange('en')}><a href="#">EN</a></li>
