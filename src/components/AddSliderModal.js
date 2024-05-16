@@ -4,6 +4,8 @@ import { uploadImage } from "../firebase-communication/firebase-storage";
 import { set } from "@firebase/database";
 import { useState } from "react";
 import { add_new_slider } from "../firebase-communication/firebase-database";
+import cross from "../assets/img/cross_modal.svg";
+
 
 function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
   const [url, setUrl] = useState("");
@@ -75,7 +77,7 @@ function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
         onClick={() => setModalIsOpen(false)}
         style={{ float: "right", cursor: "pointer", fontSize: "1.5rem" }}
       >
-        ✖️
+      <img src={cross} alt="Close" />
       </button>
       <div>
         <h2 style={{ textAlign: "center" }}>Add New Image</h2>
