@@ -3,7 +3,7 @@ import AddStoneModal from './AddStoneModal';
 import '../assets/css/catalog.css';
 import { delete_stone_gallery_element } from '../firebase-communication/firebase-database';
 
-const Catalog = ({ catalogData, isAdmin }) => {
+const Catalog = ({ catalogData, isAdmin, refreshCatalog }) => {
     const [addImage, setAddImage] = useState(false);
 
     const handleAddClick = () => {
@@ -24,7 +24,7 @@ const Catalog = ({ catalogData, isAdmin }) => {
 
     return (
         <div className="catalogContainer">
-            <AddStoneModal modalIsOpen={addImage} setModalIsOpen={setAddImage} />
+            <AddStoneModal modalIsOpen={addImage} setModalIsOpen={setAddImage} reloadData={refreshCatalog}/>
 
             {catalogData.map((item) => (
                 <div key={item.id} className="catalogItem">

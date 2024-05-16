@@ -7,7 +7,7 @@ import { add_new_slider } from "../firebase-communication/firebase-database";
 import cross from "../assets/img/cross_modal.svg";
 
 
-function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
+function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId, reloadData }) {
   const [url, setUrl] = useState("");
   const [image, setImage] = useState();
   const [imagePreview, setImagePreview] = useState(null);
@@ -57,7 +57,7 @@ function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId }) {
 
       await add_new_slider(sliderId, imgUrl, title, description);
       handleModalClose();
-      // window.location.reload();
+      await reloadData();
     } catch (error) {
       console.error("Error uploading image:", error);
       setUrl("");

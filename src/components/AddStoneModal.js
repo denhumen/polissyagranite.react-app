@@ -6,7 +6,7 @@ import { useState } from "react";
 import { add_stone_gallery_element } from "../firebase-communication/firebase-database";
 import cross from "../assets/img/cross_modal.svg";
 
-function AddStoneModal({ modalIsOpen, setModalIsOpen, sliderId }) {
+function AddStoneModal({ modalIsOpen, setModalIsOpen, sliderId, reloadData }) {
   const [url, setUrl] = useState("");
   const [image, setImage] = useState();
   const [imagePreview, setImagePreview] = useState(null);
@@ -45,7 +45,7 @@ function AddStoneModal({ modalIsOpen, setModalIsOpen, sliderId }) {
       console.log("Uploaded image URL:", imgUrl);
       await add_stone_gallery_element(imgUrl, title);
       handleModalClose();
-      window.location.reload();
+      await reloadData();
     } catch (error) {
       console.error("Error uploading image:", error);
       setUrl("");
