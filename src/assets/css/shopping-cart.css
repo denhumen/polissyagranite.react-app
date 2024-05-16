@@ -24,7 +24,7 @@
     width: 65%;
 }
 
-form {
+/* form {
     width: 50%;
     margin: 0 auto;
     padding: 20px;
@@ -47,7 +47,7 @@ button {
 
 button:hover {
     background-color: #45a049;
-}
+} */
 
 .custom-dropdown {
     position: relative;
