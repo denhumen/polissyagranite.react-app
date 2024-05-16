@@ -6,6 +6,7 @@ import AdminLoginPage from './pages/AdminLoginPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import GalleryPage from './pages/GalleryPage';
+import ShoppingCartPage from './pages/ShoppingCartPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
           <Route path="/terms-and-conditions" element={<TermsConditions/>} />
           <Route path="/gallery/:parentSliderId/:sliderId" element={<GalleryPage />} />
+          <Route path="/order" element={<ShoppingCartPage/> }/>
         </Routes>
       </div>
     </Router>

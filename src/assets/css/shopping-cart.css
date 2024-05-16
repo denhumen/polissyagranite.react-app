@@ -1,0 +1,114 @@
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+    padding: 10px 0;
+
+    width: 30%;
+    height: 15%;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    width: 30%;
+}
+
+.form-row select,
+.form-row input {
+    width: 65%;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+  }
+  
+  .custom-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+  }
+  
+  .selected-stone {
+    display: flex;
+    align-items: center;
+  }
+  
+  .selected-stone img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  .custom-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .custom-dropdown-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+  }
+  
+  .custom-dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+
+  .cart-item-expanded {
+    transition: ease-in-out 0.3s;
+  }
