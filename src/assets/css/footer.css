@@ -12,6 +12,11 @@ button {
 
 a{
     text-decoration: none;
+    color: white;
+}
+
+.dropdawn-lang{
+    padding: 0;
 }
 
 .footer{

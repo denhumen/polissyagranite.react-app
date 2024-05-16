@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 import MainPage from './pages/MainPage';
 import AdminLoginPage from './pages/AdminLoginPage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/admin" element={<AdminLoginPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route path="/terms-and-conditions" element={<TermsConditions/>} />
         </Routes>
       </div>
     </Router>

@@ -47,9 +47,9 @@ function Header({isAdmin}) {
                             <a href="#">{t("header.lang")}</a>
                             {isDropdownOpen && (
                                 <ul className="dropdown-content">
-                                    <li onClick={() => handleLanguageChange('en')}><a href="#">EN</a></li>
-                                    <li onClick={() => handleLanguageChange('ua')}><a href="#">UA</a></li>
-                                    <li onClick={() => handleLanguageChange('pl')}><a href="#">PL</a></li>
+                                    <li className="dropdawn-lang" onClick={() => handleLanguageChange('en')}><a href="#"><img class="lang-img" width="25" height="25" src="https://img.icons8.com/color/48/great-britain-circular.png" alt="great-britain-circular"/>EN</a></li>
+                                    <li className="dropdawn-lang" onClick={() => handleLanguageChange('ua')}><a href="#"><img class="lang-img" width="25" height="25" src="https://img.icons8.com/color/48/ukraine-circular.png" alt="ukraine-circular"/>UA</a></li>
+                                    <li className="dropdawn-lang" onClick={() => handleLanguageChange('pl')}><a href="#"><img class="lang-img" width="25" height="25" src="https://img.icons8.com/color/48/poland-circular.png" alt="poland-circular"/>PL</a></li>
                                 </ul>
                             )}
                         </li>
