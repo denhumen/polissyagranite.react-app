@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import MainPage from './pages/MainPage';
 import AdminLoginPage from './pages/AdminLoginPage';
+import ShoppingCartPage from './pages/ShoppingCartPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/admin" element={<AdminLoginPage />} />
+          <Route path="/order" element={<ShoppingCartPage/> }/>
         </Routes>
       </div>
     </Router>

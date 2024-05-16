@@ -1,24 +1,22 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import React from "react";
+import { useLocation } from "react-router-dom";
+import ShoppingCart from "../components/ShoppingCart";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-import {ShoppingCart} from "../components/ShoppingCart";
-// import "../assets/css/ShoppingCartPage.css";
-
-
-
-function ShoppingCartPage(props) {
-
-  const [cart, setCart] = useState([]);
-  console.log(location);
+const ShoppingCartPage = (isAdmin) => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const title = params.get("title");
+  const imgUrl = params.get("imgUrl");
 
   return (
     <div>
-      <h2>Cart</h2>
-      <ShoppingCart item={props.location.state.slide} />
-      <Link to="/">Back to Home</Link>
+      <Header isAdmin={isAdmin} />
+      <ShoppingCart title={title} imgUrl={imgUrl} />
+      <Footer />
     </div>
   );
-}
+};
 
 export default ShoppingCartPage;
