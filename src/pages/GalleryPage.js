@@ -1,37 +1,41 @@
-import React, { useState, useCallback } from 'react';
-import Gallery from 'react-photo-gallery';
-import Carousel, { Modal, ModalGateway } from 'react-images';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import Footer from '../components/Footer';
+import Main from '../components/Main';
+import { useParams } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { get_gallery } from '../firebase-communication/firebase-database';
+import Gallery from '../components/Gallery';
 
-const GalleryPage = ({ images }) => {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+function GalleryPage() {
+    const { parentSliderId, sliderId } = useParams();
+    
+    const { user } = useAuth();
+    const isAdmin = !!user;
 
-  const openLightbox = useCallback((event, { photo, index }) => {
-    setCurrentImage(index);
-    setViewerIsOpen(true);
-  }, []);
+    const [gallery, setGallery] = useState([]);
 
-  const closeLightbox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(false);
-  };
+    const fetchGallery = async () => {
+        const loadedGallery = await get_gallery(parentSliderId, sliderId);
+        setGallery(loadedGallery);
+    };
 
-  const photos = images.map((url) => ({
-    src: url,
-    width: 4,
-    height: 3,
-  }));
+    useEffect(() => {
+        fetchGallery();
+    }, [parentSliderId, sliderId]);
 
-  return (
-    <div>
-      
-    </div>
-  );
-};
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
-GalleryPage.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
+    return (
+        <div>
+            <Main isAdmin={isAdmin} />
+            
+            <Gallery images={gallery} isAdmin={isAdmin} parentSliderId={parentSliderId} sliderId={sliderId}/>
+
+            <Footer />
+        </div>
+    );
+}
 
 export default GalleryPage;
