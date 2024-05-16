@@ -5,6 +5,7 @@ import MainPage from './pages/MainPage';
 import AdminLoginPage from './pages/AdminLoginPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
+import GalleryPage from './pages/GalleryPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/admin" element={<AdminLoginPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
           <Route path="/terms-and-conditions" element={<TermsConditions/>} />
+          <Route path="/gallery/:parentSliderId/:sliderId" element={<GalleryPage />} />
         </Routes>
       </div>
     </Router>

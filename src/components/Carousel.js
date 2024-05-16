@@ -7,10 +7,13 @@ import "../assets/css/carousel.css";
 import { useTranslation } from "react-i18next";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { delete_slider } from "../firebase-communication/firebase-database";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
     const [t, i18n] = useTranslation("global");
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const navigate = useNavigate();
+    
     const settings = {
         dots: true,
         infinite: false,
@@ -32,6 +35,10 @@ const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
         await refreshSliderGroups();
     };
 
+    const handleOnclickShowMore = async (parentId, slideId) => {
+      navigate(`/gallery/${parentId}/${slideId}`);
+    };
+
     const sliderContent = Array.isArray(slides.sliders)
         ? slides.sliders.map((slide, index) => (
             <div key={index} className="slide-content">
@@ -40,7 +47,7 @@ const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
                     <h2>{slide.title[lang]}</h2>
                     <p>{slide.description[lang]}</p>
                     <button className="btn-primary">{t("buttons.order-button")}</button>
-                    <button className="btn-primary">{t("buttons.more-button")}</button>
+                    <button className="btn-primary" onClick={() => handleOnclickShowMore(slides.id, slide.id)}>{t("buttons.more-button")}</button>
                 </div>
                 {isAdmin && (
                     <button
