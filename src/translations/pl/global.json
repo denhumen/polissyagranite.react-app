@@ -21,6 +21,14 @@
         "more-button" : "Zobacz więcej"
     },
 
+    "communication": {
+        "title": "Komunikacja",
+        "phone1": "Telefon 1: +38 093 185 66 04",
+        "phone2": "Telefon 2: +48730634203",
+        "email": "Email: polissyagraniteua@gmail.com",
+        "socials": "Media społecznościowe"
+    },
+
     "footer" : {
          "title": "Produkty do zamówienia w POLISSYA GRANITE",
          "description": "Oferujemy produkcję wyrobów z kamienia naturalnego według Państwa szkiców i projektów. Produkujemy dowolne wyroby z kamienia naturalnego w cenach bez pośredników.",
@@ -92,7 +100,29 @@
             "heading": "Kontakt",
             "content": "Jeśli masz jakiekolwiek pytania lub potrzebujesz więcej informacji na temat naszego Regulaminu, nie wahaj się z nami skontaktować przez e-mail na adres [Twój Kontakt Email]."
         }
+    },
+
+    "shoppingCart": {
+        "dimensions": "Wymiary",
+        "measure": "Miara",
+        "width": "Szerokość",
+        "length": "Długość",
+        "height": "Wysokość",
+        "placeholder_fraction": "liczba ułamkowa",
+        "stone": "Kamień",
+        "select_stone": "Wybierz kamień",
+        "select": "Wybierz",
+        "quantity": "Ilość",
+        "quantity_measure": "Jednostka miary",
+        "m2": "m²",
+        "pc": "szt",
+        "phone": "Numer telefonu",
+        "submit": "Zatwierdź"
+    },
+
+    "sectionHeadings": {
+        "products": "Nasze produkty",
+        "stones": "Katalog kamieni"
     }
 
-    
 }

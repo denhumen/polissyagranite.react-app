@@ -73,7 +73,7 @@ function AddStoneModal({ modalIsOpen, setModalIsOpen, sliderId, reloadData }) {
         <img src={cross} alt="Close" />
       </button>
       <div>
-        <h2 style={{ textAlign: "center" }}>Add New Image</h2>
+        <h2 style={{ textAlign: "center" }}>Add New Stone</h2>
         <input type="file" accept="image/*" onChange={handleFileUpload} />
         {imagePreview && (
           <div style={{ textAlign: "center", margin: "10px 0" }}>
@@ -98,7 +98,7 @@ function AddStoneModal({ modalIsOpen, setModalIsOpen, sliderId, reloadData }) {
           margin: "10px auto",
           display: "block",
         }}>
-          Add Image
+          Add Stone
         </button>
       </div>
     </Modal>

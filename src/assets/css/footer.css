@@ -194,12 +194,6 @@ a{
     cursor: pointer;
 }
 
-/* @media screen and (max-width: 850px) {
-    .order-container>.text2{
-        height: 70px;
-    }
-} */
-
 @media screen and (max-width: 900px) {
     .order-container>.text1{
         font-size: 30px;

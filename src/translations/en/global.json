@@ -21,6 +21,14 @@
         "more-button" : "Show more"
     },
 
+    "communication": {
+        "title": "Communication",
+        "phone1": "Phone 1: +38 093 185 66 04",
+        "phone2": "Phone 2: +48730634203",
+        "email": "Email: polissyagraniteua@gmail.com",
+        "socials": "Social Networks"
+    },
+
     "footer" : {
          "title": "Products to order from POLISSYA GRANITE",
          "description": "We offer the manufacture of natural stone products according to your sketches and designs. We produce any products from natural stone at prices without intermediaries.",
@@ -38,63 +46,84 @@
 
 
     "privacy_policy": {
-            "title": "Privacy Policy",
-            "introduction": {
-                "heading": "Introduction",
-                "content": "Welcome to [Your Website Name]. We are committed to protecting your privacy. This Privacy Policy outlines the types of information we collect from you while you use our website, and how we use, maintain, and disclose this information."
-            },
-            "information_collection": {
-                "heading": "Information Collection",
-                "content": {
-                    "personal_info": "We collect personal information that you provide when you register, place an order, or interact with our services. This may include your name, email address, postal address, and payment information.",
-                    "cookies_and_usage_data": "We use cookies to track the activity on our service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent."
-                }
-            },
-            "use_of_data": {
-                "heading": "Use of Data",
-                "content": "The data we collect helps us provide and improve our services. Specifically, we use the data for: Completing transactions and delivering products. Providing customer support. Enhancing user experience and improving the functionality of our services. Marketing and promotional efforts, subject to your consent where required by law."
-            },
-            "data_sharing_and_disclosure": {
-                "heading": "Data Sharing and Disclosure",
-                "content": "We do not sell your personal data. We may share your information with trusted third parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential."
-            },
-            "security": {
-                "heading": "Security",
-                "content": "We strive to use commercially acceptable means to protect your Personal Information, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure."
-            },
-            "changes_to_policy": {
-                "heading": "Changes to This Privacy Policy",
-                "content": "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page."
-            },
-            "contact_us": {
-                "heading": "Contact Us",
-                "content": "If you have any questions about this Privacy Policy, please contact us: Email: [Your Contact Email] Phone: [Your Contact Number]"
+        "title": "Privacy Policy",
+        "introduction": {
+            "heading": "Introduction",
+            "content": "Welcome to [Your Website Name]. We are committed to protecting your privacy. This Privacy Policy outlines the types of information we collect from you while you use our website, and how we use, maintain, and disclose this information."
+        },
+        "information_collection": {
+            "heading": "Information Collection",
+            "content": {
+                "personal_info": "We collect personal information that you provide when you register, place an order, or interact with our services. This may include your name, email address, postal address, and payment information.",
+                "cookies_and_usage_data": "We use cookies to track the activity on our service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent."
             }
         },
-    
-        "terms_conditions": {
-            "title": "Terms and Conditions",
-            "introduction": {
-                "content": "Welcome to [Your Website Name]. These terms and conditions outline the rules and regulations for the use of [Your Company Name]'s Website, located at [Your Website URL]. By accessing this website, we assume you accept these terms and conditions. Do not continue to use [Your Website Name] if you do not agree to take all of the terms and conditions stated on this page."
-            },
-            "user_guidelines": {
-                "heading": "User Guidelines",
-                "content": "The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: \"Client\", \"You\" and \"Your\" refers to you, the person log on this website and compliant to the Company’s terms and conditions. \"The Company\", \"Ourselves\", \"We\", \"Our\" and \"Us\", refers to our Company."
-            },
-            "license": {
-                "heading": "License",
-                "content": "Unless otherwise stated, [Your Company Name] and/or its licensors own the intellectual property rights for all material on [Your Website Name]. All intellectual property rights are reserved. You may access this from [Your Website Name] for your own personal use subjected to restrictions set in these terms and conditions."
-            },
-            "disclaimer": {
-                "heading": "Disclaimer",
-                "content": "All the information on this website is published in good faith and for general information purpose only. [Your Website Name] does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website ( [Your Website Name] ), is strictly at your own risk."
-            },
-            "contact": {
-                "heading": "Contact",
-                "content": "If you have any questions or require any more information about our Terms and Conditions, do not hesitate to contact us through email at [Your Contact Email]."
-            }
+        "use_of_data": {
+            "heading": "Use of Data",
+            "content": "The data we collect helps us provide and improve our services. Specifically, we use the data for: Completing transactions and delivering products. Providing customer support. Enhancing user experience and improving the functionality of our services. Marketing and promotional efforts, subject to your consent where required by law."
+        },
+        "data_sharing_and_disclosure": {
+            "heading": "Data Sharing and Disclosure",
+            "content": "We do not sell your personal data. We may share your information with trusted third parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential."
+        },
+        "security": {
+            "heading": "Security",
+            "content": "We strive to use commercially acceptable means to protect your Personal Information, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure."
+        },
+        "changes_to_policy": {
+            "heading": "Changes to This Privacy Policy",
+            "content": "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page."
+        },
+        "contact_us": {
+            "heading": "Contact Us",
+            "content": "If you have any questions about this Privacy Policy, please contact us: Email: [Your Contact Email] Phone: [Your Contact Number]"
         }
-        
-        
+    },
+
+    "terms_conditions": {
+        "title": "Terms and Conditions",
+        "introduction": {
+            "content": "Welcome to [Your Website Name]. These terms and conditions outline the rules and regulations for the use of [Your Company Name]'s Website, located at [Your Website URL]. By accessing this website, we assume you accept these terms and conditions. Do not continue to use [Your Website Name] if you do not agree to take all of the terms and conditions stated on this page."
+        },
+        "user_guidelines": {
+            "heading": "User Guidelines",
+            "content": "The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: \"Client\", \"You\" and \"Your\" refers to you, the person log on this website and compliant to the Company’s terms and conditions. \"The Company\", \"Ourselves\", \"We\", \"Our\" and \"Us\", refers to our Company."
+        },
+        "license": {
+            "heading": "License",
+            "content": "Unless otherwise stated, [Your Company Name] and/or its licensors own the intellectual property rights for all material on [Your Website Name]. All intellectual property rights are reserved. You may access this from [Your Website Name] for your own personal use subjected to restrictions set in these terms and conditions."
+        },
+        "disclaimer": {
+            "heading": "Disclaimer",
+            "content": "All the information on this website is published in good faith and for general information purpose only. [Your Website Name] does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website ( [Your Website Name] ), is strictly at your own risk."
+        },
+        "contact": {
+            "heading": "Contact",
+            "content": "If you have any questions or require any more information about our Terms and Conditions, do not hesitate to contact us through email at [Your Contact Email]."
+        }
+    },
+
+    "shoppingCart": {
+        "dimensions": "Dimensions",
+        "measure": "Measure",
+        "width": "Width",
+        "length": "Length",
+        "height": "Height",
+        "placeholder_fraction": "fractional number",
+        "stone": "Stone",
+        "select": "Select",
+        "select_stone": "Select a stone",
+        "quantity": "Quantity",
+        "quantity_measure": "Quantity Measure",
+        "m2": "m²",
+        "pc": "pcs",
+        "phone": "Phone Number",
+        "submit": "Submit"
+    },
+
+    "sectionHeadings": {
+        "products": "Our products",
+        "stones": "Stone catalog"
+    }
+
 }
-    

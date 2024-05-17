@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import AddSliderModal from "./AddSliderModal";
 import "slick-carousel/slick/slick.css";
@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { delete_gallery, delete_slider } from "../firebase-communication/firebase-database";
 import { useNavigate } from "react-router-dom";
+import CustomConfirm from "../helpers/CustomConfirm";
 
 const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
   const [t, i18n] = useTranslation("global");
@@ -34,15 +35,20 @@ const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.push({ imgUrl, title });
     localStorage.setItem("cart", JSON.stringify(cart));
-
   }
 
   const handleDeleteSlide = async (slideId, imgUrl) => {
-    if (window.confirm("Are you sure you want to delete this item?")){
-      await delete_slider(slides.id, slideId, imgUrl);
-      await delete_gallery(slides.id, slideId);
-      await refreshSliderGroups();
-    }
+    CustomConfirm({
+      message: "Are you sure you want to delete this item?",
+      onConfirm: async () => {
+        await delete_slider(slides.id, slideId, imgUrl);
+        await delete_gallery(slides.id, slideId);
+        await refreshSliderGroups();
+      },
+      onCancel: () => {
+        console.log("Deletion cancelled.");
+      }
+    });
   };
 
   const handleOnclickShowMore = async (parentId, slideId) => {
@@ -50,38 +56,38 @@ const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
   };
 
   const sliderContent = slides.sliders && typeof slides.sliders === 'object'
-        ? Object.values(slides.sliders).map((slide, index) => (
-            <div key={index} className="slide-content">
-                <img
-                    className="slider-image"
-                    src={slide.img_url}
-                    alt={`Slide ${index}`}
-                />
-                <div className="slide-info">
-                    <h2>{slide.title[lang]}</h2>
-                    <p>{slide.description[lang]}</p>
-                    <button className="btn-primary">
-                        <a
-                            href="/order"
-                            onClick={() => handleOrderClick(slide.img_url, slide.title)}
-                        >
-                            {t("buttons.order-button")}
-                        </a>
-                    </button>
-                    <button className="btn-primary" onClick={() => handleOnclickShowMore(slides.id, slide.id)}>{t("buttons.more-button")}</button>
-                </div>
-                {isAdmin && (
-                    <button
-                        className="btn-delete"
-                        onClick={() => handleDeleteSlide(slide.id, slide.img_url)}
-                        title="Delete Slide"
-                    >
-                        <i className="fas fa-trash-alt"></i>
-                    </button>
-                )}
-            </div>
-        ))
-        : null;
+    ? Object.values(slides.sliders).map((slide, index) => (
+      <div key={index} className="slide-content">
+        <img
+          className="slider-image"
+          src={slide.img_url}
+          alt={`Slide ${index}`}
+        />
+        <div className="slide-info">
+          <h2>{slide.title[lang]}</h2>
+          <p>{slide.description[lang]}</p>
+          <button className="btn-primary">
+            <a
+              href="/order"
+              onClick={() => handleOrderClick(slide.img_url, slide.title)}
+            >
+              {t("buttons.order-button")}
+            </a>
+          </button>
+          <button className="btn-primary" onClick={() => handleOnclickShowMore(slides.id, slide.id)}>{t("buttons.more-button")}</button>
+        </div>
+        {isAdmin && (
+          <button
+            className="btn-delete"
+            onClick={() => handleDeleteSlide(slide.id, slide.img_url)}
+            title="Delete Slide"
+          >
+            <i className="fas fa-trash-alt"></i>
+          </button>
+        )}
+      </div>
+    ))
+    : null;
 
   return (
     <div className="carousel-container">

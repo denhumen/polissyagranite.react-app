@@ -1,6 +1,6 @@
 .main-block{
     width: 100%;
-    height: 633px; /* Consider making height more flexible if needed */
+    height: 633px;
     display: flex;
     align-items: center;
     background-repeat: no-repeat;
@@ -9,53 +9,52 @@
 }
 
 .main-block-text-block{
-    width: 503px; /* Consider using max-width and width in percentages */
+    width: 503px;
     max-width: 90%;
-    height: auto; /* Flexibility in height */
+    height: auto;
     margin-left: 133px;
-    padding: 20px; /* Padding for smaller screens */
+    padding: 20px;
 }
 
 .main-block-text-block>.text1{
-    width: 190px; /* Consider using max-width and width in percentages */
+    width: 190px;
     max-width: 100%;
     font-family: PTSerif;
-    font-size: 1rem; /* Responsive font size */
+    font-size: 1rem;
     color: #F3EADE;
     letter-spacing: 2px;
 }
 
 .main-block-text-block>.text2{
-    width: 449px; /* Consider using max-width and width in percentages */
+    width: 449px;
     max-width: 100%;
     font-family: PTSerif;
-    font-size: 3rem; /* Larger font size, but still responsive */
+    font-size: 3rem;
     color: white;
-    line-height: 1.33; /* Relative line height */
+    line-height: 1.33;
 }
 
 .main-block-text-block>.text3{
-    width: 503px; /* Consider using max-width and width in percentages */
+    width: 503px;
     max-width: 100%;
     font-family: PTSerif;
-    font-size: 1rem; /* Consistent font size with text1 */
+    font-size: 1rem;
     color: #F3EADE;
-    line-height: 1.7; /* Relative line height */
+    line-height: 1.7;
     margin-top: 7px;
 }
 
 @media (max-width: 768px) {
     .main-block-text-block {
-        margin-left: 20px; /* Less margin on smaller screens */
+        margin-left: 20px;
     }
     .main-block-text-block > .text1, .main-block-text-block > .text2, .main-block-text-block > .text3 {
-        font-size: 0.9rem; /* Smaller font size on small screens */
+        font-size: 0.9rem;
     }
     .main-block-text-block > .text2 {
-        font-size: 2.5rem; /* Adjust large text size for small screens */
+        font-size: 2.5rem;
     }
 }
-
 
 .main-block-button-container{
     width: 185px;

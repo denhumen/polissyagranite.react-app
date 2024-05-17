@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import "../assets/css/PrivacyPolicy.css"
+import "../assets/css/privacy_policy.css"
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 

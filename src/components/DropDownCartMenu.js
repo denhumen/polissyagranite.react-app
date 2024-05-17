@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../assets/css/shopping-cart.css";
+import "../assets/css/shopping_cart.css";
 import { get_stone_gallery } from "../firebase-communication/firebase-database";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useTranslation } from 'react-i18next';
 
 const DropDownCartMenu = ({ collectData }) => {
+  const [t, i18n] = useTranslation("global");
   const [formValues, setFormValues] = useState({
     measure: "",
     width: "",
@@ -76,52 +78,52 @@ const DropDownCartMenu = ({ collectData }) => {
 
   return (
     <form onSubmit={handleSubmit} className="form-shopping-cart">
-      <h3>Розміри</h3>
+      <h3>{t('shoppingCart.dimensions')}</h3>
       <div className="form-row">
-        <label>Розмірність</label>
+        <label>{t('shoppingCart.measure')}</label>
         <select
           name="measure"
           value={formValues.measure}
           onChange={handleChange}
         >
-          <option value="">Select</option>
+          <option value="">{t('shoppingCart.select')}</option>
           <option value="cm">cm</option>
           <option value="mm">mm</option>
         </select>
       </div>
       <div className="form-row">
-        <label>Ширина</label>
+        <label>{t('shoppingCart.width')}</label>
         <input
           type="text"
           name="width"
           value={formValues.width}
           onChange={handleChange}
-          placeholder="дробове число"
+          placeholder={t('shoppingCart.placeholder_fraction')}
         />
       </div>
       <div className="form-row">
-        <label>Довжина</label>
+        <label>{t('shoppingCart.length')}</label>
         <input
           type="text"
           name="length"
           value={formValues.length}
           onChange={handleChange}
-          placeholder="дробове число"
+          placeholder={t('shoppingCart.placeholder_fraction')}
         />
       </div>
       <div className="form-row">
-        <label>Висота</label>
+        <label>{t('shoppingCart.height')}</label>
         <input
           type="text"
           name="height"
           value={formValues.height}
           onChange={handleChange}
-          placeholder="дробове число"
+          placeholder={t('shoppingCart.placeholder_fraction')}
         />
       </div>
-      <h3>Камінь</h3>
+      <h3>{t('shoppingCart.stone')}</h3>
       <div className="form-row">
-        <label>Камінь</label>
+        <label>{t('shoppingCart.stone')}</label>
         <div className="custom-dropdown" ref={dropdownRef}>
           <div
             className="custom-dropdown-header"
@@ -143,7 +145,9 @@ const DropDownCartMenu = ({ collectData }) => {
                   }
                 </span>
               </div>
-            ) : ("Select a stone")}
+            ) : (
+              t('shoppingCart.select_stone')
+            )}
           </div>
           {isDropdownOpen && (
             <ul className="custom-dropdown-menu">
@@ -164,32 +168,32 @@ const DropDownCartMenu = ({ collectData }) => {
           )}
         </div>
       </div>
-      <h3>Кількість</h3>
+      <h3>{t('shoppingCart.quantity')}</h3>
       <div className="form-row">
-        <label>Розмірність</label>
+        <label>{t('shoppingCart.quantity_measure')}</label>
         <select
           name="quantity_measure"
           value={formValues.quantity_measure}
           onChange={handleChange}
         >
-          <option value="">Select</option>
-          <option value="m2">м²</option>
-          <option value="pc">шт</option>
+          <option value="">{t('shoppingCart.select')}</option>
+          <option value="m2">{t('shoppingCart.m2')}</option>
+          <option value="pc">{t('shoppingCart.pc')}</option>
         </select>
       </div>
       <div className="form-row">
-        <label>Кількість</label>
+        <label>{t('shoppingCart.quantity')}</label>
         <input
           type="number"
           name="quantity"
           value={formValues.quantity}
           onChange={handleChange}
-          placeholder="ціле число"
+          placeholder={t('shoppingCart.placeholder_fraction')}
         />
       </div>
-      <h3>Контактний номер телефону</h3>
+      <h3>{t('shoppingCart.phone')}</h3>
       <div className="form-row">
-        <label>Телефон</label>
+        <label>{t('shoppingCart.phone')}</label>
         <PhoneInput
           country={"us"}
           value={formValues.phoneNumber}

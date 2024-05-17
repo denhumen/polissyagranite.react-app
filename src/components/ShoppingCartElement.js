@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DropDownCartMenu from "./DropDownCartMenu";
-import "../assets/css/shopping-cart.css";
+import "../assets/css/shopping_cart.css";
 import { useTranslation } from "react-i18next";
 
 function ShoppingCartElement({

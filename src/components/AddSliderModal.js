@@ -80,7 +80,7 @@ function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId, reloadData }) {
       <img src={cross} alt="Close" />
       </button>
       <div>
-        <h2 style={{ textAlign: "center" }}>Add New Image</h2>
+        <h2 style={{ textAlign: "center" }}>Add New Slider</h2>
         <input type="file" accept="image/*" onChange={handleFileUpload} />
         {imagePreview && (
           <div style={{ textAlign: "center", margin: "10px 0" }}>
@@ -139,7 +139,7 @@ function AddSliderModal({ modalIsOpen, setModalIsOpen, sliderId, reloadData }) {
         </div>
 
         <button className="btn-primary" onClick={handleAddImage}>
-          Add Image
+          Add Slider
         </button>
       </div>
     </Modal>

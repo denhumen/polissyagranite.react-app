@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AddStoneModal from './AddStoneModal';
 import '../assets/css/catalog.css';
 import { delete_stone_gallery_element } from '../firebase-communication/firebase-database';
+import CustomConfirm from '../helpers/CustomConfirm';
 
 const Catalog = ({ catalogData, isAdmin, refreshCatalog }) => {
     const [addImage, setAddImage] = useState(false);
@@ -10,16 +11,22 @@ const Catalog = ({ catalogData, isAdmin, refreshCatalog }) => {
         setAddImage(true);
     };
 
-    const handleDelete = async (id, imgUrl) => {
-        if (window.confirm("Are you sure you want to delete this item?")) {
-            try {
-                await delete_stone_gallery_element(id, imgUrl);
-                await refreshCatalog();
-                alert("Item deleted successfully!");
-            } catch (error) {
-                alert("Failed to delete the item: " + error.message);
+    const handleDelete = (id, imgUrl) => {
+        CustomConfirm({
+            message: "Are you sure you want to delete this item?",
+            onConfirm: async () => {
+                try {
+                    await delete_stone_gallery_element(id, imgUrl);
+                    await refreshCatalog();
+                    alert("Item deleted successfully!");
+                } catch (error) {
+                    alert("Failed to delete the item: " + error.message);
+                }
+            },
+            onCancel: () => {
+                console.log("Deletion cancelled.");
             }
-        }
+        });
     };
 
     return (

@@ -42,7 +42,7 @@ function Header({isAdmin}) {
                         <li><a href="#portfolio">{t("header.menu4")}</a></li>
                         <li><a href="#pricing">{t("header.menu5")}</a></li>
                         <li><a href="#blog">{t("header.menu6")}</a></li> */}
-                        <li><a href="#contact">{t("header.menu7")}</a></li>
+                        <li><a href="/order">{t("header.menu7")}</a></li>
                         <li onClick={toggleDropdown} className="dropdown">
                             <a href="#">{t("header.lang")}</a>
                             {isDropdownOpen && (

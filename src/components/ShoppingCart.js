@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../assets/css/shopping-cart.css";
+import "../assets/css/shopping_cart.css";
 import ShoppingCartElement from "./ShoppingCartElement";
 import emailjs from "emailjs-com";
 import { get_stone_gallery } from "../firebase-communication/firebase-database";

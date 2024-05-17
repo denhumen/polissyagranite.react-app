@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../assets/css/AdminLoginPage.css';
+import '../assets/css/admin_login_page.css';
 import { login } from '../firebase-communication/firebase-auth';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,10 +8,12 @@ function AdminLoginPage() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    login(email, password);
-    navigate('/');
+    const errorMessage = await login(email, password);
+    if (!errorMessage) {
+      navigate('/');
+    }
   };
 
   return (

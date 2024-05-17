@@ -5,8 +5,12 @@ import { useAuth } from '../context/AuthContext';
 import CarouselGroup from '../components/CarouselGroup';
 import Catalog from '../components/Catalog';
 import { get_sliders, get_stone_gallery } from '../firebase-communication/firebase-database';
+import SectionHeading from '../components/SectionHeading';
+import { useTranslation } from 'react-i18next';
 
 function MainPage() {
+    const [t, i18n] = useTranslation("global");
+
     const { user } = useAuth();
     const isAdmin = !!user;
 
@@ -31,11 +35,17 @@ function MainPage() {
     return (
         <div>
             <Main isAdmin={isAdmin} />
+
+            <SectionHeading>{t('sectionHeadings.products')}</SectionHeading>
+
             <CarouselGroup
                 slidersGroups={sliderGroups}
                 isAdmin={isAdmin}
                 refreshSliderGroups={fetchSliderGroups}
             />
+
+            <SectionHeading>{t('sectionHeadings.stones')}</SectionHeading>
+
             <Catalog 
                 catalogData={stoneGallery} 
                 isAdmin={isAdmin}

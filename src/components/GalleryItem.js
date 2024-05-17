@@ -1,12 +1,13 @@
 import React from "react";
 import "lightbox2/dist/js/lightbox-plus-jquery";
 import "lightbox2/dist/css/lightbox.css";
+import "../assets/css/gallery_item.css";
 
 const GalleryItem = ({ imgUrl }) => {
     return (
-            <a href={imgUrl} data-lightbox="gallery">
-                <img src={imgUrl} alt="Image" style={{ cursor: 'pointer' }} />
-            </a>
+        <a href={imgUrl} data-lightbox="gallery" className="galleryItemLink">
+            <img src={imgUrl} alt="Image" className="galleryItemImage" />
+        </a>
     );
 };
 
