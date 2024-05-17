@@ -3,7 +3,7 @@ import "../assets/css/shopping_cart.css";
 import { get_stone_gallery } from "../firebase-communication/firebase-database";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const DropDownCartMenu = ({ collectData }) => {
   const [t, i18n] = useTranslation("global");
@@ -78,52 +78,56 @@ const DropDownCartMenu = ({ collectData }) => {
 
   return (
     <form onSubmit={handleSubmit} className="form-shopping-cart">
-      <h3>{t('shoppingCart.dimensions')}</h3>
+      <h3>{t("shoppingCart.dimensions")}</h3>
       <div className="form-row">
-        <label>{t('shoppingCart.measure')}</label>
+        <label>{t("shoppingCart.measure")}</label>
         <select
           name="measure"
           value={formValues.measure}
           onChange={handleChange}
+          required
         >
-          <option value="">{t('shoppingCart.select')}</option>
+          <option value="">{t("shoppingCart.select")}</option>
           <option value="cm">cm</option>
           <option value="mm">mm</option>
         </select>
       </div>
       <div className="form-row">
-        <label>{t('shoppingCart.width')}</label>
+        <label>{t("shoppingCart.width")}</label>
         <input
           type="text"
           name="width"
           value={formValues.width}
           onChange={handleChange}
-          placeholder={t('shoppingCart.placeholder_fraction')}
+          placeholder={t("shoppingCart.placeholder_fraction")}
+          required
         />
       </div>
       <div className="form-row">
-        <label>{t('shoppingCart.length')}</label>
+        <label>{t("shoppingCart.length")}</label>
         <input
           type="text"
           name="length"
           value={formValues.length}
           onChange={handleChange}
-          placeholder={t('shoppingCart.placeholder_fraction')}
+          placeholder={t("shoppingCart.placeholder_fraction")}
+          required
         />
       </div>
       <div className="form-row">
-        <label>{t('shoppingCart.height')}</label>
+        <label>{t("shoppingCart.height")}</label>
         <input
           type="text"
           name="height"
           value={formValues.height}
           onChange={handleChange}
-          placeholder={t('shoppingCart.placeholder_fraction')}
+          placeholder={t("shoppingCart.placeholder_fraction")}
+          required
         />
       </div>
-      <h3>{t('shoppingCart.stone')}</h3>
+      <h3>{t("shoppingCart.stone")}</h3>
       <div className="form-row">
-        <label>{t('shoppingCart.stone')}</label>
+        <label>{t("shoppingCart.stone")}</label>
         <div className="custom-dropdown" ref={dropdownRef}>
           <div
             className="custom-dropdown-header"
@@ -146,7 +150,7 @@ const DropDownCartMenu = ({ collectData }) => {
                 </span>
               </div>
             ) : (
-              t('shoppingCart.select_stone')
+              t("shoppingCart.select_stone")
             )}
           </div>
           {isDropdownOpen && (
@@ -168,37 +172,40 @@ const DropDownCartMenu = ({ collectData }) => {
           )}
         </div>
       </div>
-      <h3>{t('shoppingCart.quantity')}</h3>
+      <h3>{t("shoppingCart.quantity")}</h3>
       <div className="form-row">
-        <label>{t('shoppingCart.quantity_measure')}</label>
+        <label>{t("shoppingCart.quantity_measure")}</label>
         <select
           name="quantity_measure"
           value={formValues.quantity_measure}
           onChange={handleChange}
+          required
         >
-          <option value="">{t('shoppingCart.select')}</option>
-          <option value="m2">{t('shoppingCart.m2')}</option>
-          <option value="pc">{t('shoppingCart.pc')}</option>
+          <option value="">{t("shoppingCart.select")}</option>
+          <option value="m2">{t("shoppingCart.m2")}</option>
+          <option value="pc">{t("shoppingCart.pc")}</option>
         </select>
       </div>
       <div className="form-row">
-        <label>{t('shoppingCart.quantity')}</label>
+        <label>{t("shoppingCart.quantity")}</label>
         <input
           type="number"
           name="quantity"
           value={formValues.quantity}
           onChange={handleChange}
-          placeholder={t('shoppingCart.placeholder_fraction')}
+          placeholder={t("shoppingCart.placeholder_fraction")}
+          required
         />
       </div>
-      <h3>{t('shoppingCart.phone')}</h3>
+      <h3>{t("shoppingCart.phone")}</h3>
       <div className="form-row">
-        <label>{t('shoppingCart.phone')}</label>
+        <label>{t("shoppingCart.phone")}</label>
         <PhoneInput
           country={"us"}
           value={formValues.phoneNumber}
           onChange={handlePhoneChange}
           inputStyle={{ width: "100%" }}
+          required
         />
       </div>
     </form>

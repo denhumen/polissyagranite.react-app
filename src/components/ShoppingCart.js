@@ -3,6 +3,8 @@ import "../assets/css/shopping_cart.css";
 import ShoppingCartElement from "./ShoppingCartElement";
 import emailjs from "emailjs-com";
 import { get_stone_gallery } from "../firebase-communication/firebase-database";
+import { useTranslation } from "react-i18next";
+
 
 const serviceId = "service_2vm4ala";
 const templateId = "template_oksmh3k";
@@ -13,6 +15,7 @@ function ShoppingCart() {
   const orderedItems = JSON.parse(localStorage.getItem("cart")) || [];
   const [formData, setFormData] = useState({});
   const [stoneGallery, setStoneGallery] = useState([]);
+  const [t, i18n] = useTranslation("global");
 
   const handleRemove = (index) => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -37,13 +40,12 @@ function ShoppingCart() {
   const formatDescription = (data) => {
     return Object.entries(data).map(([index, item]) => {
       const stone = stoneGallery.find((stone) => stone.id === item.stone);
-      console.log(item);
       return `Пункт ${parseInt(index) + 1}:
       - Розмірність: ${item.measure || 'Не вказано'}
       - Ширина: ${item.width || 'Не вказано'}
       - Довжина: ${item.length || 'Не вказано'}
       - Висота: ${item.height || 'Не вказано'}
-      - Камінь: ${stone.title || 'Не вказано'}
+      - Камінь: ${stone?.title || 'Не вказано'}
       - Розмірність кількості: ${item.quantity_measure || 'Не вказано'}
       - Кількість: ${item.quantity || 'Не вказано'}
       - Номер телефону: ${item.phoneNumber || 'Не вказано'}\n\n`;
@@ -51,6 +53,23 @@ function ShoppingCart() {
   };
 
   const handleSendEmail = () => {
+    if (localStorage.getItem("cart") === null || orderedItems.length === 0) {
+      alert(t('shoppingCart.emptyCart'));
+      return;
+    }
+    if (Object.keys(formData).length === 0) {
+      alert(t('shoppingCart.orderError'));
+      return;
+    }
+    for (const key in formData) {
+      console.log(formData[key], key);
+      const item = formData[key];
+      if ((!item.measure) || (!item.width) || (!item.length) || (!item.height) || (!item.stone) || (!item.quantity_measure) || (!item.quantity) || (!item.phoneNumber)) {
+        alert(t('shoppingCart.orderError'));
+        return;
+      }
+    }
+
     const description = formatDescription(formData);
     const templateParams = {
       to_email: userEmail,
@@ -61,7 +80,7 @@ function ShoppingCart() {
       .send(serviceId, templateId, templateParams, userId)
       .then(
         (response) => {
-          alert("Дякуємо за ваше замовлення! Ми скоро з вами зв'яжемося.");
+          alert(t('shoppingCart.orderSuccess'));
           console.log("OK", response.status, response.text);
         },
         (error) => {
@@ -69,10 +88,9 @@ function ShoppingCart() {
         }
       )
       .then(() => {
-        localStorage.removeItem("cart");
+        // localStorage.removeItem("cart");
         window.location.reload();
       });
-
   };
 
   return (
@@ -90,7 +108,7 @@ function ShoppingCart() {
         ))}
       </div>
       <button onClick={handleSendEmail} className="order-button">
-        Оформити замовлення
+        {t('shoppingCart.orderButton')}
       </button>
     </div>
   );

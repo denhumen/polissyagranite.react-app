@@ -39,7 +39,7 @@
          "button_name": "Order",
          "company_description": "Your personal stone master. Contact us and we will help you to choose a stone product individually",
          "socials": "Socials",
-         "rules": "©2022 POLISSYAGRANITE. All rights reserved",
+         "rules": "©2024 POLISSYAGRANITE. All rights reserved",
          "privacy": "Privacy policy",
          "terms": "Terms and conditions"
     },
@@ -49,7 +49,7 @@
         "title": "Privacy Policy",
         "introduction": {
             "heading": "Introduction",
-            "content": "Welcome to [Your Website Name]. We are committed to protecting your privacy. This Privacy Policy outlines the types of information we collect from you while you use our website, and how we use, maintain, and disclose this information."
+            "content": "Welcome to POLISSYA GRANITE. We are committed to protecting your privacy. This Privacy Policy outlines the types of information we collect from you while you use our website, and how we use, maintain, and disclose this information."
         },
         "information_collection": {
             "heading": "Information Collection",
@@ -76,14 +76,14 @@
         },
         "contact_us": {
             "heading": "Contact Us",
-            "content": "If you have any questions about this Privacy Policy, please contact us: Email: [Your Contact Email] Phone: [Your Contact Number]"
+            "content": "If you have any questions about this Privacy Policy, please contact us: Email: polissyagraniteua@gmail.com Phone: +38 093 185 66 04"
         }
     },
 
     "terms_conditions": {
         "title": "Terms and Conditions",
         "introduction": {
-            "content": "Welcome to [Your Website Name]. These terms and conditions outline the rules and regulations for the use of [Your Company Name]'s Website, located at [Your Website URL]. By accessing this website, we assume you accept these terms and conditions. Do not continue to use [Your Website Name] if you do not agree to take all of the terms and conditions stated on this page."
+            "content": "Welcome to POLISSYA GRANITE. These terms and conditions outline the rules and regulations for the use of POLISSYA GRANITE's Website, located at https://www.pollisya-granite.pl/. By accessing this website, we assume you accept these terms and conditions. Do not continue to use POLISSYA GRANITE if you do not agree to take all of the terms and conditions stated on this page."
         },
         "user_guidelines": {
             "heading": "User Guidelines",
@@ -91,15 +91,15 @@
         },
         "license": {
             "heading": "License",
-            "content": "Unless otherwise stated, [Your Company Name] and/or its licensors own the intellectual property rights for all material on [Your Website Name]. All intellectual property rights are reserved. You may access this from [Your Website Name] for your own personal use subjected to restrictions set in these terms and conditions."
+            "content": "Unless otherwise stated, POLISSYA GRANITE and/or its licensors own the intellectual property rights for all material on POLISSYA GRANITE. All intellectual property rights are reserved. You may access this from POLISSYA GRANITE for your own personal use subjected to restrictions set in these terms and conditions."
         },
         "disclaimer": {
             "heading": "Disclaimer",
-            "content": "All the information on this website is published in good faith and for general information purpose only. [Your Website Name] does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website ( [Your Website Name] ), is strictly at your own risk."
+            "content": "All the information on this website is published in good faith and for general information purpose only. POLISSYA GRANITE does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website ( POLISSYA GRANITE ), is strictly at your own risk."
         },
         "contact": {
             "heading": "Contact",
-            "content": "If you have any questions or require any more information about our Terms and Conditions, do not hesitate to contact us through email at [Your Contact Email]."
+            "content": "If you have any questions or require any more information about our Terms and Conditions, do not hesitate to contact us through email at polissyagraniteua@gmail.com"
         }
     },
 
@@ -118,7 +118,11 @@
         "m2": "m²",
         "pc": "pcs",
         "phone": "Phone Number",
-        "submit": "Submit"
+        "submit": "Submit",
+        "orderButton": "Place order",
+        "orderSuccess": "Order has been placed successfully",
+        "orderError": "Order has not been placed. Please fill all fields",
+        "emptyCart": "Your cart is empty!"
     },
 
     "sectionHeadings": {
