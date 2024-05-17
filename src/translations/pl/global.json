@@ -6,12 +6,27 @@
         "menu4" : "Płyty",
         "menu5" : "Krawężnik",
         "menu6" : "Katalog kamieni",
-        "menu7" : "Zamówić"
+        "menu7" : "Zamówić",
+        "lang"  : "Język",
+        "logout": "Wylogowanie"
     },
 
     "main" : {
         "motto": "Find Stone Products For Your Company",
         "description": "Kamień naturalny - to materiał, który nie tylko zaskakuje swoim pięknem, ale jest także niezawodnym, trwałym i doskonałym rozwiązaniem do budowy wnętrz i na zewnątrz. POLISSYA GRANITE - Ukraińskie wyroby granitowe bezpośrednio od producenta z wieloletnim doświadczeniem oraz gwarantacją jakości od naszych specjalistów"
+    },
+
+    "buttons" : {
+        "order-button" : "Zamówić",
+        "more-button" : "Zobacz więcej"
+    },
+
+    "communication": {
+        "title": "Komunikacja",
+        "phone1": "Telefon 1: +38 093 185 66 04",
+        "phone2": "Telefon 2: +48730634203",
+        "email": "Email: polissyagraniteua@gmail.com",
+        "socials": "Media społecznościowe"
     },
 
     "footer" : {
@@ -27,6 +42,91 @@
          "rules": "©2017 POLISSYAGRANITE. Wszelkie prawa zastrzeżone",
          "privacy": "Polityka prywatności",
          "terms": "Zasady i warunki"
+    },
+
+    "privacy_policy": {
+        "title": "Polityka prywatności",
+        "introduction": {
+            "heading": "Wprowadzenie",
+            "content": "Witamy na POLISSYA GRANITE. Jesteśmy zobowiązani do ochrony Twojej prywatności. Niniejsza Polityka prywatności opisuje rodzaje informacji, które zbieramy od Ciebie podczas korzystania z naszej strony internetowej oraz sposób ich wykorzystywania, utrzymywania i ujawniania."
+        },
+        "information_collection": {
+            "heading": "Zbieranie informacji",
+            "content": {
+                "personal_info": "Zbieramy dane osobowe, które podajesz podczas rejestracji, składania zamówienia lub interakcji z naszymi usługami. Może to obejmować Twoje imię i nazwisko, adres e-mail, adres pocztowy oraz informacje o płatności.",
+                "cookies_and_usage_data": "Używamy plików cookie do śledzenia aktywności na naszym serwisie i przechowywania określonych informacji. Pliki cookie to pliki zawierające niewielką ilość danych, które mogą zawierać anonimowy unikalny identyfikator. Możesz ustawić swoją przeglądarkę tak, aby odrzucała wszystkie pliki cookie lub wskazywała, kiedy plik cookie jest wysyłany."
+            }
+        },
+        "use_of_data": {
+            "heading": "Wykorzystanie danych",
+            "content": "Zebrane dane pomagają nam świadczyć i ulepszać nasze usługi. Konkretnie, używamy danych do: realizacji transakcji i dostarczania produktów. Świadczenia wsparcia klienta. Poprawy doświadczeń użytkowników i funkcjonalności naszych usług. Działań marketingowych i promocyjnych, pod warunkiem Twojej zgody, tam gdzie wymaga tego prawo."
+        },
+        "data_sharing_and_disclosure": {
+            "heading": "Udostępnianie i ujawnianie danych",
+            "content": "Nie sprzedajemy Twoich danych osobowych. Możemy udostępniać Twoje informacje zaufanym stronom trzecim, które pomagają nam w prowadzeniu naszej strony internetowej, prowadzeniu naszej działalności lub obsłudze naszych użytkowników, pod warunkiem, że te strony zobowiążą się do zachowania poufności tych informacji."
+        },
+        "security": {
+            "heading": "Bezpieczeństwo",
+            "content": "Dokładamy wszelkich starań, aby używać środków ochrony danych osobowych, które są komercyjnie akceptowalne, jednak pamiętaj, że żadna metoda przesyłania danych przez Internet, ani metoda przechowywania danych elektronicznych nie jest w 100% bezpieczna."
+        },
+        "changes_to_policy": {
+            "heading": "Zmiany w polityce prywatności",
+            "content": "Od czasu do czasu możemy aktualizować naszą Politykę prywatności. Powiadomimy Cię o wszelkich zmianach, publikując nową Politykę prywatności na tej stronie."
+        },
+        "contact_us": {
+            "heading": "Skontaktuj się z nami",
+            "content": "Jeśli masz jakiekolwiek pytania dotyczące tej Polityki prywatności, skontaktuj się z nami: Email: polissyagraniteua@gmail.com Telefon: +48730634203"
+        }
+    },
+
+    "terms_conditions": {
+        "title": "Regulamin",
+        "introduction": {
+            "content": "Witamy na POLISSYA GRANITE. Niniejszy regulamin określa zasady i warunki korzystania ze strony internetowej POLISSYA GRANITE, znajdującej się pod adresem [URL Twojej Strony]. Przystępując do korzystania ze strony, zakładasz, że akceptujesz te zasady i warunki. Nie kontynuuj korzystania z POLISSYA GRANITE, jeśli nie zgadzasz się na wszystkie zasady i warunki zawarte na tej stronie."
+        },
+        "user_guidelines": {
+            "heading": "Wytyczne dla użytkowników",
+            "content": "Następująca terminologia dotyczy Regulaminu, Polityki prywatności i Zawiadomienia o zastrzeżeniach oraz wszystkich Umów: „Klient”, „Ty” i „Twój” odnoszą się do Ciebie, osoby logującej się na tę stronę internetową i zgadzającej się na warunki firmy. „Firma”, „My”, „Nas”, „Nasz” i „Nasze” odnoszą się do naszej Firmy."
+        },
+        "license": {
+            "heading": "Licencja",
+            "content": "O ile nie zaznaczono inaczej, POLISSYA GRANITE i/lub jej licencjodawcy posiadają prawa własności intelektualnej do wszystkich materiałów na POLISSYA GRANITE. Wszelkie prawa własności intelektualnej są zastrzeżone. Możesz korzystać z tego serwisu dla swojego osobistego użytku, podlegając ograniczeniom określonym w tych warunkach."
+        },
+        "disclaimer": {
+            "heading": "Zrzeczenie się odpowiedzialności",
+            "content": "Wszystkie informacje na tej stronie są publikowane w dobrej wierze i wyłącznie w celach informacyjnych. POLISSYA GRANITE nie udziela żadnych gwarancji co do kompletności, niezawodności i dokładności tych informacji. Każde działanie, które podejmiesz na podstawie informacji znajdujących się na tej stronie internetowej (POLISSYA GRANITE), podejmujesz wyłącznie na własne ryzyko."
+        },
+        "contact": {
+            "heading": "Kontakt",
+            "content": "Jeśli masz jakiekolwiek pytania lub potrzebujesz więcej informacji na temat naszego Regulaminu, nie wahaj się z nami skontaktować przez e-mail na adres polissyagraniteua@gmail.com."
+        }
+    },
+
+    "shoppingCart": {
+        "dimensions": "Wymiary",
+        "measure": "Miara",
+        "width": "Szerokość",
+        "length": "Długość",
+        "height": "Wysokość",
+        "placeholder_fraction": "liczba ułamkowa",
+        "stone": "Kamień",
+        "select_stone": "Wybierz kamień",
+        "select": "Wybierz",
+        "quantity": "Ilość",
+        "quantity_measure": "Jednostka miary",
+        "m2": "m²",
+        "pc": "szt",
+        "phone": "Numer telefonu",
+        "submit": "Zatwierdź",
+        "orderButton": "Zamówić",
+        "orderSuccess": "Zamówienie zostało złożone pomyślnie",
+        "orderError": "Zamówienie nie zostało złożone. Proszę wypełnić wszystkie pola",
+        "emptyCart": "Koszyk jest pusty!"
+    },
+
+    "sectionHeadings": {
+        "products": "Nasze produkty",
+        "stones": "Katalog kamieni"
     }
 
 }

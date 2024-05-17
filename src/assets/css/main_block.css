@@ -1,4 +1,3 @@
-
 .main-block{
     width: 100%;
     height: 633px;
@@ -10,37 +9,52 @@
 }
 
 .main-block-text-block{
-    width: 503px;
-    height: 284px;
+    width: 40%;
+    max-width: 90%;
+    height: auto;
     margin-left: 133px;
+    padding: 20px;
 }
 
 .main-block-text-block>.text1{
     width: 190px;
-    height: 19px;
+    max-width: 100%;
     font-family: PTSerif;
-    font-size: 14px;
+    font-size: 1rem;
     color: #F3EADE;
     letter-spacing: 2px;
 }
 
 .main-block-text-block>.text2{
     width: 449px;
-    height: 128px;
+    max-width: 100%;
     font-family: PTSerif;
-    font-size: 48px;
+    font-size: 3rem;
     color: white;
-    line-height: 64px;
+    line-height: 1.33;
 }
 
 .main-block-text-block>.text3{
     width: 503px;
-    height: 48px;
+    max-width: 100%;
     font-family: PTSerif;
-    font-size: 14px;
+    font-size: 1rem;
     color: #F3EADE;
-    line-height: 24px;
+    line-height: 1.7;
     margin-top: 7px;
+}
+
+@media (max-width: 768px) {
+    .main-block-text-block {
+        width: 80%;
+        margin-left: 20px;
+    }
+    .main-block-text-block > .text1, .main-block-text-block > .text2, .main-block-text-block > .text3 {
+        font-size: 0.9rem;
+    }
+    .main-block-text-block > .text2 {
+        font-size: 2.5rem;
+    }
 }
 
 .main-block-button-container{

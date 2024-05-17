@@ -1,0 +1,42 @@
+.input-div {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.input-div input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(204, 204, 204, 0.5); /* Adjusted opacity to 50% */
+}
+
+.input-stone-div {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ReactModal__Overlay {
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(6px);
+}
+
+.ReactModal__Content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(27, 53, 68, 0.75);
+    color: #1B3544;
+}

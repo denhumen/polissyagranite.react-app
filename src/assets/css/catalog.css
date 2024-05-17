@@ -1,0 +1,83 @@
+.catalogContainer {
+    margin: 10%;
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    justify-content: center;
+}
+
+.catalogItem {
+    width: calc(25% - 20px);
+    padding: 10px;
+    position: relative;
+}
+
+.catalogImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.catalogCaption {
+    text-align: center;
+}
+
+.addButtonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.addButtonContainer {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.addButton {
+    background-color: #1B3544;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+}
+
+.deleteButton {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .catalogItem {
+        width: calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .catalogItem {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .catalogItem {
+        width: calc(100% - 20px);
+    }
+}

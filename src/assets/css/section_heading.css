@@ -1,0 +1,46 @@
+.slider-block-heading {
+    width: 100%;
+    max-width: 1200px;
+    height: 53px;
+    text-align: center;
+    font-family: PTSerif;
+    font-size: 40px;
+    color: #1B3544;
+    font-weight: bold;
+    margin: 40px auto;
+}
+
+@media screen and (max-width: 1200px) {
+    .slider-block-heading {
+        font-size: 35px;
+        margin: 30px auto;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .slider-block-heading {
+        font-size: 30px;
+        margin: 20px auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slider-block-heading {
+        font-size: 25px;
+        margin: 15px auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .slider-block-heading {
+        font-size: 20px;
+        margin: 10px auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .slider-block-heading {
+        font-size: 18px;
+        margin: 5px auto;
+    }
+}

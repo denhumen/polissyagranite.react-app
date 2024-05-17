@@ -37,7 +37,7 @@ function Footer() {
                         </div>
                     </div>
                     <div className="order-block-button-container">
-                        <a href="./communication_page.html"><button>{t("footer.button_name")}</button></a>
+                        <a href="/communication"><button>{t("footer.button_name")}</button></a>
                     </div>
                 </div>
             </div>
@@ -56,8 +56,8 @@ function Footer() {
                 </div>
                 <div className="footer-footer-footer">
                     <div>{t("footer.rules")}</div>
-                    <div className="cursor-pointer">{t("footer.privacy")}</div>
-                    <div className="cursor-pointer">{t("footer.terms")}</div>
+                    <div className="cursor-pointer"><a href="/privacy-policy">{t("footer.privacy")}</a></div>
+                    <div className="cursor-pointer"><a href="/terms-and-conditions">{t("footer.terms")}</a></div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,50 @@
+.custom-confirm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(27, 53, 68, 0.75);
+    color: #1B3544;
+    z-index: 1001;
+    text-align: center;
+}
+
+.custom-confirm h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+.custom-confirm p {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.custom-confirm .buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-confirm button {
+    background: #1B3544;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.custom-confirm button:hover {
+    background: #F3EADE;
+    color: #1B3544;
+}
+
+.react-confirm-alert-overlay {
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(6px);
+}

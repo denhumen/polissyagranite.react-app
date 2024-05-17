@@ -1,0 +1,86 @@
+.galleryContainer {
+    margin: 2% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.galleryList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.galleryItem {
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    box-sizing: border-box;
+    padding: 5px;
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn-delete:hover {
+    color: darkred;
+}
+
+.addButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 300px;
+}
+
+.addButton {
+    background-color: #1B3544;
+    border: none;
+    color: white;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+    .galleryItem {
+        flex: 1 1 calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .galleryItem {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .galleryItem {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
