@@ -10,25 +10,33 @@ import { delete_gallery, delete_slider } from "../firebase-communication/firebas
 import { useNavigate } from "react-router-dom";
 
 const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
-    const [t, i18n] = useTranslation("global");
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const navigate = useNavigate();
-    
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 2000,
-    };
+  const [t, i18n] = useTranslation("global");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+  };
 
   const lang = i18n.language;
 
   const handleAddClick = () => {
     setModalIsOpen(true);
   };
+
+  const handleOrderClick = (imgUrl, title) => {
+    // append to a list in local storage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ imgUrl, title });
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+  }
 
   const handleDeleteSlide = async (slideId, imgUrl) => {
     if (window.confirm("Are you sure you want to delete this item?")){
