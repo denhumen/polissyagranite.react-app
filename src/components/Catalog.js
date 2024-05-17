@@ -3,6 +3,7 @@ import AddStoneModal from './AddStoneModal';
 import '../assets/css/catalog.css';
 import { delete_stone_gallery_element } from '../firebase-communication/firebase-database';
 import CustomConfirm from '../helpers/CustomConfirm';
+import { notifyError, notifySuccess } from '../toast-config';
 
 const Catalog = ({ catalogData, isAdmin, refreshCatalog }) => {
     const [addImage, setAddImage] = useState(false);
@@ -18,9 +19,8 @@ const Catalog = ({ catalogData, isAdmin, refreshCatalog }) => {
                 try {
                     await delete_stone_gallery_element(id, imgUrl);
                     await refreshCatalog();
-                    alert("Item deleted successfully!");
                 } catch (error) {
-                    alert("Failed to delete the item: " + error.message);
+                    console.error("Failed to delete the item: " + error.message);
                 }
             },
             onCancel: () => {

@@ -16,7 +16,7 @@ import { ToastContainer } from 'react-toastify';
 
 i18next.init({
   interpolation: {escapeValue: false},
-  lng: "en",
+  lng: localStorage.getItem('language') || "en",
   resources: {
     en: {
       global: global_en

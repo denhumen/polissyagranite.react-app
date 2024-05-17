@@ -6,16 +6,21 @@ import { get_stone_gallery } from "../firebase-communication/firebase-database";
 import { useTranslation } from "react-i18next";
 import { notifyError, notifySuccess } from "../toast-config";
 
-const serviceId = "service_2vm4ala";
-const templateId = "template_oksmh3k";
-const userId = "_Fd5BeqFyIorI_QiH";
-const userEmail = "crunchywatermeloncrab@gmail.com";
+const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const userId = process.env.REACT_APP_EMAILJS_USER_ID;
+const userEmail = process.env.REACT_APP_USER_EMAIL;
 
 function ShoppingCart() {
-  const orderedItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const [orderedItems, setOrderedItems] = useState([]);
+
   const [formData, setFormData] = useState({});
   const [stoneGallery, setStoneGallery] = useState([]);
   const [t, i18n] = useTranslation("global");
+
+  const fetchOrderedItems = () => {
+    setOrderedItems(JSON.parse(localStorage.getItem("cart")) || []);
+  };
 
   const handleRemove = (index) => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -35,6 +40,7 @@ function ShoppingCart() {
     get_stone_gallery().then((stones) => {
       setStoneGallery(stones);
     });
+    fetchOrderedItems();
   }, []);
 
   const formatDescription = (data) => {
@@ -99,8 +105,8 @@ function ShoppingCart() {
         }
       )
       .then(() => {
-        // localStorage.removeItem("cart");
-        window.location.reload();
+        localStorage.removeItem("cart");
+        fetchOrderedItems();
       });
   };
 

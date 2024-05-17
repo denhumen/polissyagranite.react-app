@@ -19,6 +19,7 @@ function Header({isAdmin}) {
 
     const handleLanguageChange = (lang) => {
         i18n.changeLanguage(lang);
+        localStorage.setItem('language', lang);
     };
 
     return (
