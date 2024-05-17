@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/css/hamburgermenu.css';
-import '../assets/css/navbar.css'; // Assume you separate CSS for the navbar
+import '../assets/css/navbar.css';
 
 function Navbar() {
     return (

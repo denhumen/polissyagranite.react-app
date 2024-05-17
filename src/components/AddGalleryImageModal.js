@@ -38,7 +38,6 @@ function AddGalleryImageModal({ modalIsOpen, setModalIsOpen, parentSliderId, sli
       const imgUrl = await uploadImage(image);
       setUrl(imgUrl);
       console.log("Uploaded image URL:", imgUrl);
-      // console.log(parentSliderId, sliderId);
       await add_image_to_gallery(parentSliderId, sliderId, imgUrl);
       handleModalClose();
       await reloadData();

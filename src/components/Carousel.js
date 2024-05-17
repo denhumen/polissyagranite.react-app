@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import AddSliderModal from "./AddSliderModal";
 import "slick-carousel/slick/slick.css";
@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../assets/css/carousel.css";
 import { useTranslation } from "react-i18next";
 import "@fortawesome/fontawesome-free/css/all.css";
-import { delete_slider } from "../firebase-communication/firebase-database";
+import { delete_gallery, delete_slider } from "../firebase-communication/firebase-database";
 import { useNavigate } from "react-router-dom";
 
 const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
@@ -31,48 +31,51 @@ const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
   };
 
   const handleDeleteSlide = async (slideId, imgUrl) => {
-    await delete_slider(slides.id, slideId, imgUrl);
-    await refreshSliderGroups();
+    if (window.confirm("Are you sure you want to delete this item?")){
+      await delete_slider(slides.id, slideId, imgUrl);
+      await delete_gallery(slides.id, slideId);
+      await refreshSliderGroups();
+    }
   };
 
   const handleOnclickShowMore = async (parentId, slideId) => {
     navigate(`/gallery/${parentId}/${slideId}`);
   };
 
-  const sliderContent = Array.isArray(slides.sliders)
-    ? slides.sliders.map((slide, index) => (
-        <div key={index} className="slide-content">
-          <img
-            className="slider-image"
-            src={slide.img_url}
-            alt={`Slide ${index}`}
-          />
-          <div className="slide-info">
-            <h2>{slide.title[lang]}</h2>
-            <p>{slide.description[lang]}</p>
-            <button className="btn-primary">
-              <a
-                href={`/order?title=${encodeURIComponent(
-                  slide.title[lang]
-                )}&imgUrl=${encodeURIComponent(slide.img_url)}`}
-              >
-                {t("buttons.order-button")}
-              </a>
-            </button>
-            <button className="btn-primary" onClick={() => handleOnclickShowMore(slides.id, slide.id)}>{t("buttons.more-button")}</button>
-          </div>
-          {isAdmin && (
-            <button
-              className="btn-delete"
-              onClick={() => handleDeleteSlide(slide.id, slide.img_url)}
-              title="Delete Slide"
-            >
-              <i className="fas fa-trash-alt"></i>
-            </button>
-          )}
-        </div>
-      ))
-    : null;
+  const sliderContent = slides.sliders && typeof slides.sliders === 'object'
+        ? Object.values(slides.sliders).map((slide, index) => (
+            <div key={index} className="slide-content">
+                <img
+                    className="slider-image"
+                    src={slide.img_url}
+                    alt={`Slide ${index}`}
+                />
+                <div className="slide-info">
+                    <h2>{slide.title[lang]}</h2>
+                    <p>{slide.description[lang]}</p>
+                    <button className="btn-primary">
+                        <a
+                            href={`/order?title=${encodeURIComponent(
+                                slide.title[lang]
+                            )}&imgUrl=${encodeURIComponent(slide.img_url)}`}
+                        >
+                            {t("buttons.order-button")}
+                        </a>
+                    </button>
+                    <button className="btn-primary" onClick={() => handleOnclickShowMore(slides.id, slide.id)}>{t("buttons.more-button")}</button>
+                </div>
+                {isAdmin && (
+                    <button
+                        className="btn-delete"
+                        onClick={() => handleDeleteSlide(slide.id, slide.img_url)}
+                        title="Delete Slide"
+                    >
+                        <i className="fas fa-trash-alt"></i>
+                    </button>
+                )}
+            </div>
+        ))
+        : null;
 
   return (
     <div className="carousel-container">

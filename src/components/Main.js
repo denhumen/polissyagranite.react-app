@@ -14,7 +14,6 @@ function Main({isAdmin}) {
             <Header isAdmin={isAdmin} />
             <div className="main-block" style={{backgroundImage: `url(${mainblockBg})`}}>
                 <div className="main-block-text-block">
-                    {/* <div class="text1">100% Гарантія Якості</div> */}
                     <div className="text2">{t("main.motto")}</div>
                     <div className="text3">{t("main.description")}</div>
                 </div>

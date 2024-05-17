@@ -72,7 +72,12 @@ const get_sliders = async () => {
 
 const delete_slider = async (parentId, sliderId, imgUrl) => {
     try {
-        await deleteImage(imgUrl);
+
+        try{
+            await deleteImage(imgUrl);
+        } catch (error){
+            console.error(`Failed to delete image: ${imgUrl}; `, error);
+        }
 
         const dbRef = ref(rtDatabase, `sliders/${parentId}/sliders/${sliderId}`);
         await set(dbRef, null).then( () => {
@@ -121,7 +126,11 @@ const add_stone_gallery_element = async (imgUrl, title) => {
 
 const delete_stone_gallery_element = async (stoneId, imgUrl) => {
     try {
-        await deleteImage(imgUrl);
+        try{
+            await deleteImage(imgUrl);
+        } catch (error){
+            console.error("Failed delete image: ", error);
+        }
 
         const dbRef = ref(rtDatabase, `stone-galery/${stoneId}`);
         await set(dbRef, null).then( () => {
@@ -181,7 +190,11 @@ const add_image_to_gallery = async (parentSliderId, sliderId, imgUrl) => {
 
 const delete_image_from_gallery = async (parentSliderId, sliderId, imageId, imgUrl) => {
     try {
-        await deleteImage(imgUrl);
+        try{
+            await deleteImage(imgUrl);
+        } catch (error){
+            console.error("Failed delete image: ", error);
+        }
 
         const dbRef = ref(rtDatabase, `gallery-pages/${parentSliderId}/images/${sliderId}/${imageId}`);
         await set(dbRef, null);
@@ -191,6 +204,18 @@ const delete_image_from_gallery = async (parentSliderId, sliderId, imageId, imgU
     } catch (error) {
         alertError("Failed to delete image from gallery.");
         console.error(`Failed to delete image with ID: ${imageId} from gallery`, error);
+    }
+};
+
+const delete_gallery = async (parentSliderId, sliderId) => {
+    try {
+        const dbRef = ref(rtDatabase, `gallery-pages/${parentSliderId}/images/${sliderId}`);
+        await set(dbRef, null);
+
+        alertSuccess("Image deleted from gallery successfully.");
+    } catch (error) {
+        alertError("Failed to delete image from gallery");
+        console.error(`Failed to delete image from gallery`, error);
     }
 };
 
@@ -216,4 +241,4 @@ const get_gallery = async (parentSliderId, sliderId) => {
     }
 };
 
-export { add_new_slider, get_sliders, delete_slider, add_stone_gallery_element, delete_stone_gallery_element, get_stone_gallery, add_image_to_gallery, delete_image_from_gallery, get_gallery };
+export { add_new_slider, get_sliders, delete_slider, add_stone_gallery_element, delete_stone_gallery_element, get_stone_gallery, add_image_to_gallery, delete_image_from_gallery, delete_gallery, get_gallery };

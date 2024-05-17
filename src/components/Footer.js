@@ -37,7 +37,7 @@ function Footer() {
                         </div>
                     </div>
                     <div className="order-block-button-container">
-                        <a href="./communication_page.html"><button>{t("footer.button_name")}</button></a>
+                        <a href="/communication"><button>{t("footer.button_name")}</button></a>
                     </div>
                 </div>
             </div>

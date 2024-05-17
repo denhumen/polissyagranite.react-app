@@ -13,8 +13,6 @@ function AddStoneModal({ modalIsOpen, setModalIsOpen, sliderId, reloadData }) {
   
   const [title, setTitle] = useState("");
 
-
-
   const handleModalClose = () => {
     setModalIsOpen(false);
     setImage(null);
