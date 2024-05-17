@@ -31,7 +31,6 @@ const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
   };
 
   const handleOrderClick = (imgUrl, title) => {
-    // append to a list in local storage
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.push({ imgUrl, title });
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -63,9 +62,8 @@ const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
                     <p>{slide.description[lang]}</p>
                     <button className="btn-primary">
                         <a
-                            href={`/order?title=${encodeURIComponent(
-                                slide.title[lang]
-                            )}&imgUrl=${encodeURIComponent(slide.img_url)}`}
+                            href="/order"
+                            onClick={() => handleOrderClick(slide.img_url, slide.title)}
                         >
                             {t("buttons.order-button")}
                         </a>
