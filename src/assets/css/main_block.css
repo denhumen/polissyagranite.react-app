@@ -9,7 +9,7 @@
 }
 
 .main-block-text-block{
-    width: 503px;
+    width: 40%;
     max-width: 90%;
     height: auto;
     margin-left: 133px;
@@ -46,6 +46,7 @@
 
 @media (max-width: 768px) {
     .main-block-text-block {
+        width: 80%;
         margin-left: 20px;
     }
     .main-block-text-block > .text1, .main-block-text-block > .text2, .main-block-text-block > .text3 {
