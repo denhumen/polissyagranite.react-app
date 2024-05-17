@@ -37,12 +37,6 @@ function Header({isAdmin}) {
                 
                 <nav className={`menu ${isMenuOpen ? 'open' : ''}`}>
                     <ul className="nav_list">
-                        {/* <li><a href="#home">{t("header.menu1")}</a></li>
-                        <li><a href="#about">{t("header.menu2")}</a></li>
-                        <li><a href="#services">{t("header.menu3")}</a></li>
-                        <li><a href="#portfolio">{t("header.menu4")}</a></li>
-                        <li><a href="#pricing">{t("header.menu5")}</a></li>
-                        <li><a href="#blog">{t("header.menu6")}</a></li> */}
                         <li><a href="/order">{t("header.menu7")}</a></li>
                         <li onClick={toggleDropdown} className="dropdown">
                             <a href="#">{t("header.lang")}</a>

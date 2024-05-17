@@ -2,7 +2,6 @@ import React from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "../assets/css/custom_confirm.css";
-import cross from "../assets/img/cross_modal.svg";
 
 const CustomConfirm = ({ message, onConfirm, onCancel }) => {
   return confirmAlert({

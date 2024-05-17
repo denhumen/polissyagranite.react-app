@@ -3,12 +3,12 @@ import '../assets/css/communication.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/AuthContext';
 
 import whatsappIcon from "../assets/img/whatsapp-icon.svg";
 import facebookIcon from "../assets/img/facebook-icon.svg";
 import instagramIcon from "../assets/img/instagram-icon.svg";
 import tiktokIcon from "../assets/img/tiktok-icon.svg";
-import { useAuth } from '../context/AuthContext';
 
 function CommunicationPage() {
     const [t, i18n] = useTranslation("global");

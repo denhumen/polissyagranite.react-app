@@ -1,6 +1,6 @@
 import { auth } from "../firebase-config";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { notifyError, notifySuccess } from "../toast-config.js"; // Adjust the path as needed
+import { notifyError, notifySuccess } from "../toast-config.js";
 
 const login = async (email, password) => {
     try {

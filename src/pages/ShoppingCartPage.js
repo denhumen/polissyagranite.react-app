@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import ShoppingCart from "../components/ShoppingCart";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
