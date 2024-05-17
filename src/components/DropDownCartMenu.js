@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../assets/css/shopping-cart.css";
 import { get_stone_gallery } from "../firebase-communication/firebase-database";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
-const DropDownCartMenu = (expanded) => {
+const DropDownCartMenu = ({ collectData }) => {
   const [formValues, setFormValues] = useState({
-    metrics: "",
+    measure: "",
     width: "",
     length: "",
     height: "",
     stone: "",
     quantity_measure: "",
     quantity: "",
+    phoneNumber: "",
   });
 
   const [stoneGallery, setStoneGallery] = useState([]);
@@ -33,14 +36,23 @@ const DropDownCartMenu = (expanded) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
+    collectData({ ...formValues, [name]: value });
+    e.stopPropagation();
   };
 
-  const handleDropdownToggle = () => {
+  const handlePhoneChange = (value) => {
+    setFormValues({ ...formValues, phoneNumber: value });
+    collectData({ ...formValues, phoneNumber: value });
+  };
+
+  const handleDropdownToggle = (e) => {
     setIsDropdownOpen(!isDropdownOpen);
+    e.stopPropagation();
   };
 
   const handleStoneSelect = (stone) => {
     setFormValues({ ...formValues, stone: stone.id });
+    collectData({ ...formValues, stone: stone.id });
     setIsDropdownOpen(false);
   };
 
@@ -59,16 +71,17 @@ const DropDownCartMenu = (expanded) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.stopPropagation();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-        <h3>Розміри</h3>
+    <form onSubmit={handleSubmit} className="form-shopping-cart">
+      <h3>Розміри</h3>
       <div className="form-row">
         <label>Розмірність</label>
         <select
-          name="metrics"
-          value={formValues.metrics}
+          name="measure"
+          value={formValues.measure}
           onChange={handleChange}
         >
           <option value="">Select</option>
@@ -130,9 +143,7 @@ const DropDownCartMenu = (expanded) => {
                   }
                 </span>
               </div>
-            ) : (
-              "Select a stone"
-            )}
+            ) : ("Select a stone")}
           </div>
           {isDropdownOpen && (
             <ul className="custom-dropdown-menu">
@@ -140,7 +151,10 @@ const DropDownCartMenu = (expanded) => {
                 <li
                   key={stone.id}
                   className="custom-dropdown-item"
-                  onClick={() => handleStoneSelect(stone)}
+                  onClick={(e) => {
+                    handleStoneSelect(stone);
+                    e.stopPropagation();
+                  }}
                 >
                   <img src={stone.img_url} alt={stone.title} />
                   <span>{stone.title}</span>
@@ -173,7 +187,16 @@ const DropDownCartMenu = (expanded) => {
           placeholder="ціле число"
         />
       </div>
-      <button type="submit">Submit</button>
+      <h3>Контактний номер телефону</h3>
+      <div className="form-row">
+        <label>Телефон</label>
+        <PhoneInput
+          country={"us"}
+          value={formValues.phoneNumber}
+          onChange={handlePhoneChange}
+          inputStyle={{ width: "100%" }}
+        />
+      </div>
     </form>
   );
 };

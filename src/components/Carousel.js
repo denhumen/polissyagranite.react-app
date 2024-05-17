@@ -10,25 +10,33 @@ import { delete_slider } from "../firebase-communication/firebase-database";
 import { useNavigate } from "react-router-dom";
 
 const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
-    const [t, i18n] = useTranslation("global");
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const navigate = useNavigate();
-    
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 2000,
-    };
+  const [t, i18n] = useTranslation("global");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+  };
 
   const lang = i18n.language;
 
   const handleAddClick = () => {
     setModalIsOpen(true);
   };
+
+  const handleOrderClick = (imgUrl, title) => {
+    // append to a list in local storage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ imgUrl, title });
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+  }
 
   const handleDeleteSlide = async (slideId, imgUrl) => {
     await delete_slider(slides.id, slideId, imgUrl);
@@ -50,16 +58,20 @@ const Carousel = ({ slides, isAdmin, refreshSliderGroups }) => {
           <div className="slide-info">
             <h2>{slide.title[lang]}</h2>
             <p>{slide.description[lang]}</p>
-            <button className="btn-primary">
-              <a
-                href={`/order?title=${encodeURIComponent(
-                  slide.title[lang]
-                )}&imgUrl=${encodeURIComponent(slide.img_url)}`}
-              >
+            <a
+              href="/order"
+              onClick={() => handleOrderClick(slide.img_url, slide.title)}
+            >
+              <button className="btn-primary">
                 {t("buttons.order-button")}
-              </a>
+              </button>
+            </a>
+            <button
+              className="btn-primary"
+              onClick={() => handleOnclickShowMore(slides.id, slide.id)}
+            >
+              {t("buttons.more-button")}
             </button>
-            <button className="btn-primary" onClick={() => handleOnclickShowMore(slides.id, slide.id)}>{t("buttons.more-button")}</button>
           </div>
           {isAdmin && (
             <button
