@@ -63,6 +63,25 @@ const get_sliders = async () => {
     }
 };
 
+const get_title_by_slider = async (parentId, sliderId) => {
+    try {
+        const dbRefRead = ref(rtDatabase, `sliders/${parentId}/sliders/${sliderId}`);
+        const snapshot = await get(dbRefRead);
+
+        if (snapshot.exists()) {
+            const sliderData = snapshot.val();
+            const { title } = sliderData;
+            return title;
+        } else {
+            console.log('No slider found for the given IDs.');
+            return null;
+        }
+    } catch (error) {
+        console.error('Failed to get title by slider:', error);
+        return null;
+    }
+};
+
 const delete_slider = async (parentId, sliderId, imgUrl) => {
     try {
         try {
@@ -227,4 +246,4 @@ const get_gallery = async (parentSliderId, sliderId) => {
     }
 };
 
-export { add_new_slider, get_sliders, delete_slider, add_stone_gallery_element, delete_stone_gallery_element, get_stone_gallery, add_image_to_gallery, delete_image_from_gallery, delete_gallery, get_gallery };
+export { add_new_slider, get_sliders, delete_slider, add_stone_gallery_element, delete_stone_gallery_element, get_stone_gallery, add_image_to_gallery, delete_image_from_gallery, delete_gallery, get_gallery, get_title_by_slider };
