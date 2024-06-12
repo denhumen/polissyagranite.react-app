@@ -5,7 +5,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useTranslation } from "react-i18next";
 
-const DropDownCartMenu = ({ collectData }) => {
+const DropDownCartMenu = ({ collectData, initialData }) => {
   const [t, i18n] = useTranslation("global");
   const [formValues, setFormValues] = useState({
     measure: "",
@@ -16,6 +16,7 @@ const DropDownCartMenu = ({ collectData }) => {
     quantity_measure: "",
     quantity: "",
     phoneNumber: "",
+    ...initialData,
   });
 
   const [stoneGallery, setStoneGallery] = useState([]);
@@ -35,16 +36,19 @@ const DropDownCartMenu = ({ collectData }) => {
     fetchStoneGallery();
   }, []);
 
+  useEffect(() => {
+    collectData(formValues);
+  }, [formValues, collectData]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-    collectData({ ...formValues, [name]: value });
-    e.stopPropagation();
+    const updatedValues = { ...formValues, [name]: value };
+    setFormValues(updatedValues);
   };
 
   const handlePhoneChange = (value) => {
-    setFormValues({ ...formValues, phoneNumber: value });
-    collectData({ ...formValues, phoneNumber: value });
+    const updatedValues = { ...formValues, phoneNumber: value };
+    setFormValues(updatedValues);
   };
 
   const handleDropdownToggle = (e) => {
@@ -53,8 +57,8 @@ const DropDownCartMenu = ({ collectData }) => {
   };
 
   const handleStoneSelect = (stone) => {
-    setFormValues({ ...formValues, stone: stone.id });
-    collectData({ ...formValues, stone: stone.id });
+    const updatedValues = { ...formValues, stone: stone.id };
+    setFormValues(updatedValues);
     setIsDropdownOpen(false);
   };
 

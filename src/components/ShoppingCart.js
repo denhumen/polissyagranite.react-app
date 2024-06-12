@@ -13,7 +13,6 @@ const userEmail = process.env.REACT_APP_USER_EMAIL;
 
 function ShoppingCart() {
   const [orderedItems, setOrderedItems] = useState([]);
-
   const [formData, setFormData] = useState({});
   const [stoneGallery, setStoneGallery] = useState([]);
   const [t, i18n] = useTranslation("global");
@@ -26,14 +25,16 @@ function ShoppingCart() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.splice(index, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
-    window.location.reload();
+    setOrderedItems(cart); // Update state directly
   };
 
   const collectData = (index, data) => {
-    setFormData((prevData) => ({
-      ...prevData,
+    const updatedFormData = {
+      ...formData,
       [index]: data,
-    }));
+    };
+    setFormData(updatedFormData);
+    localStorage.setItem("formData", JSON.stringify(updatedFormData)); // Save to local storage
   };
 
   useEffect(() => {
@@ -41,6 +42,8 @@ function ShoppingCart() {
       setStoneGallery(stones);
     });
     fetchOrderedItems();
+    const savedFormData = JSON.parse(localStorage.getItem("formData")) || {};
+    setFormData(savedFormData); // Load saved form data
   }, []);
 
   const formatDescription = (data) => {
@@ -61,7 +64,7 @@ function ShoppingCart() {
   };
 
   const handleSendEmail = () => {
-    if (localStorage.getItem("cart") === null || orderedItems.length === 0) {
+    if (orderedItems.length === 0) {
       notifyError(t("shoppingCart.emptyCart"));
       return;
     }
@@ -70,7 +73,6 @@ function ShoppingCart() {
       return;
     }
     for (const key in formData) {
-      console.log(formData[key], key);
       const item = formData[key];
       if (
         !item.measure ||
@@ -106,23 +108,27 @@ function ShoppingCart() {
       )
       .then(() => {
         localStorage.removeItem("cart");
-        fetchOrderedItems();
+        setOrderedItems([]); // Update state
       });
   };
 
   return (
     <div className="shopping-cart">
       <div className="cart-items">
-        {orderedItems.map((item, index) => (
-          <ShoppingCartElement
-            key={index}
-            index={index}
-            imgUrl={item.imgUrl}
-            title={item.title}
-            handleRemove={handleRemove}
-            collectData={collectData}
-          />
-        ))}
+        {orderedItems.length === 0 ? (
+          <p>{t("shoppingCart.emptyCart")}</p>
+        ) : (
+          orderedItems.map((item, index) => (
+            <ShoppingCartElement
+              key={index}
+              index={index}
+              imgUrl={item.imgUrl}
+              title={item.title}
+              handleRemove={handleRemove}
+              collectData={collectData}
+            />
+          ))
+        )}
       </div>
       <button onClick={handleSendEmail} className="order-button">
         {t("shoppingCart.orderButton")}
