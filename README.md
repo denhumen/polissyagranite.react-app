@@ -1,17 +1,4 @@
-# Polissyagranite project
-
-## Authors
- - [Denis Humeniuk](https://github.com/denhumen)
- - [Taras Lysun](https://github.com/taraslysun)
- - [Nazar Parnosov](https://github.com/Nazarious-ucu)
- - [Boghdan Pavliuk](https://github.com/BohdanPavliuk)
-
-## Overview
-This project is a React application that features a webpage for stone shop. The application is integrated with Firebase for data retrieval and supports multiple languages using the `react-i18next` library.
-
-## Available Scripts
-
-In the project directory, you can run:
+# Polissya Granite project
 
 ### `npm start`
 
