@@ -98,6 +98,10 @@
     color: #1B3544;
 }
 
+.btn-primary:hover a{
+    color: #1B3544;
+}
+
 .admin-add-slide {
     display: flex;
     justify-content: center;
